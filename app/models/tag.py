@@ -1,5 +1,6 @@
 from .db import db
 import datetime
+from .entry import entries_tags
 
 class Tag(db.Model):
     __tablename__ = 'tags'
@@ -23,7 +24,7 @@ class Tag(db.Model):
         return {
             'id': self.id,
             'tag_name': self.tag_name,
-            'entries': [entry.to_simple_dict() for entry in self.entries if entry else None],
+            'entries': [entry.to_simple_dict() for entry in self.entries if entry],
             'user': self.user.to_simple_dict(),
             'created': self.created_at,
             'updated': self.updated_at

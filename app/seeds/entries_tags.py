@@ -1,8 +1,8 @@
-from app.models import db, entries_tag
+from app.models import db, entries_tags
 
 
 
-def seed_entries_tag():
+def seed_entries_tags():
     rel1 = entries_tag(
         entry_id=1,
         tag_id=1)
@@ -15,16 +15,16 @@ def seed_entries_tag():
         entry_id=1,
         tag_id=3)
 
-        rel1 = entries_tag(
+    rel4 = entries_tag(
         entry_id=2,
         tag_id=4)
 
-    rel4 = entries_tag(
+    rel5 = entries_tag(
         entry_id=3,
         tag_id=5)
 
-    rel5 = entries_tag(
-        entry_id=6,
+    rel6 = entries_tag(
+        entry_id=4,
         tag_id=1)
 
 
@@ -34,6 +34,7 @@ def seed_entries_tag():
     db.session.add(rel3)
     db.session.add(rel4)
     db.session.add(rel5)
+    db.session.add(rel6)
 
 
     db.session.commit()
@@ -44,6 +45,6 @@ def seed_entries_tag():
 # TRUNCATE Removes all the data from the table, and RESET IDENTITY
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
-def undo_entries_tag():
+def undo_entries_tags():
     db.session.execute('TRUNCATE entries_tag RESTART IDENTITY CASCADE;')
     db.session.commit()
