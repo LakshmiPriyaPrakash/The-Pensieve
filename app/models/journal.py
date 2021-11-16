@@ -5,7 +5,7 @@ class Journal(db.Model):
     __tablename__ = 'journals'
 
     id = db.Column(db.Integer, primary_key=True)
-    journal_name = db.Column(db.String(300), nullable=False)
+    journal_name = db.Column(db.String(300), nullable=False, unique=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
