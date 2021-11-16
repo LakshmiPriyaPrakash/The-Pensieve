@@ -35,3 +35,9 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email
         }
+
+    def to_simple_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username
+        }

@@ -9,7 +9,6 @@ class Entry(db.Model):
     content = db.Column(db.Text(), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     journal_id = db.Column(db.Integer, db.ForeignKey("journals.id"), nullable=False)
-    tag_id = db.Column(db.Integer, db.ForeignKey("tags.id"), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
