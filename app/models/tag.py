@@ -12,13 +12,19 @@ class Tag(db.Model):
 
 
     user = db.relationship("User", back_populates="tags")
+    entries = db.relationship(
+        "Entry",
+        secondary=entries_tags,
+        back_populates="tags"
+    )
 
 
     def to_dict(self):
         return {
             'id': self.id,
             'tag_name': self.tag_name,
+            'entries': [entry.to_simple_dict() for entry in self.entries if entry else None],
             'user': self.user.to_simple_dict(),
-            "created": self.created_at,
-            "updated": self.updated_at
+            'created': self.created_at,
+            'updated': self.updated_at
         }

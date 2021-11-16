@@ -21,6 +21,6 @@ class Journal(db.Model):
             'journal_name': self.journal_name,
             'entries': [entry.to_dict() for entry in self.entries if entry else None],
             'user': self.user.to_dict(),
-            "created": self.created_at,
-            "updated": self.updated_at
+            'created': self.created_at,
+            'updated': self.updated_at
         }
