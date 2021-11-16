@@ -37,7 +37,7 @@ class Entry(db.Model):
             'content': self.content,
             'user': self.user.to_dict(),
             'journal': self.journal.to_dict(),
-            'tags': [tag.to_dict() for tag in self.tags if entry],
+            'tags': [tag.to_dict() for tag in self.tags if tag],
             'created': self.created_at,
             'updated': self.updated_at
         }

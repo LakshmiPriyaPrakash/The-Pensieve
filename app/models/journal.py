@@ -24,3 +24,10 @@ class Journal(db.Model):
             'created': self.created_at,
             'updated': self.updated_at
         }
+
+
+    def to_simple_dict(self):
+        return {
+            'id': self.id,
+            'journal_name': self.journal_name
+        }
