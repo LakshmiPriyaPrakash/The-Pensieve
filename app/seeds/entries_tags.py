@@ -3,38 +3,25 @@ from app.models import db, entries_tags
 
 
 def seed_entries_tags():
-    rel1 = entries_tag(
-        entry_id=1,
-        tag_id=1)
 
-    rel2 = entries_tag(
-        entry_id=1,
-        tag_id=2)
+    rel1 = entries_tags.insert().values(entry_id=1, tag_id=1)
 
-    rel3 = entries_tag(
-        entry_id=1,
-        tag_id=3)
+    rel2 = entries_tags.insert().values(entry_id=1, tag_id=2)
 
-    rel4 = entries_tag(
-        entry_id=2,
-        tag_id=4)
+    rel3 = entries_tags.insert().values(entry_id=1, tag_id=3)
 
-    rel5 = entries_tag(
-        entry_id=3,
-        tag_id=5)
+    rel4 = entries_tags.insert().values(entry_id=2, tag_id=4)
 
-    rel6 = entries_tag(
-        entry_id=4,
-        tag_id=1)
+    rel5 = entries_tags.insert().values(entry_id=3, tag_id=5)
 
+    rel6 = entries_tags.insert().values(entry_id=4, tag_id=1)
 
-
-    db.session.add(rel1)
-    db.session.add(rel2)
-    db.session.add(rel3)
-    db.session.add(rel4)
-    db.session.add(rel5)
-    db.session.add(rel6)
+    db.session.execute(rel1)
+    db.session.execute(rel2)
+    db.session.execute(rel3)
+    db.session.execute(rel4)
+    db.session.execute(rel5)
+    db.session.execute(rel6)
 
 
     db.session.commit()
@@ -46,5 +33,5 @@ def seed_entries_tags():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_entries_tags():
-    db.session.execute('TRUNCATE entries_tag RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE entries_tags RESTART IDENTITY CASCADE;')
     db.session.commit()

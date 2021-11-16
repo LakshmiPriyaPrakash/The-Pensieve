@@ -12,7 +12,7 @@ class Journal(db.Model):
 
 
     user = db.relationship("User", back_populates="journals")
-    entries = db.relationship("Entry", back_populates="journals", cascade = 'all, delete , delete-orphan')
+    entries = db.relationship("Entry", back_populates="journal", cascade = 'all, delete , delete-orphan')
 
 
     def to_dict(self):
