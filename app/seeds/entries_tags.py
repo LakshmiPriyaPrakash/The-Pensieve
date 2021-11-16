@@ -4,15 +4,27 @@ from app.models import db, entries_tag
 
 def seed_entries_tag():
     rel1 = entries_tag(
-        entry_id='Demo',
+        entry_id=1,
         tag_id=1)
 
     rel2 = entries_tag(
-        entry_id='Demo',
-        tag_id=1)
+        entry_id=1,
+        tag_id=2)
 
     rel3 = entries_tag(
-        entry_id='Demo',
+        entry_id=1,
+        tag_id=3)
+
+        rel1 = entries_tag(
+        entry_id=2,
+        tag_id=4)
+
+    rel4 = entries_tag(
+        entry_id=3,
+        tag_id=5)
+
+    rel5 = entries_tag(
+        entry_id=6,
         tag_id=1)
 
 
@@ -20,6 +32,8 @@ def seed_entries_tag():
     db.session.add(rel1)
     db.session.add(rel2)
     db.session.add(rel3)
+    db.session.add(rel4)
+    db.session.add(rel5)
 
 
     db.session.commit()

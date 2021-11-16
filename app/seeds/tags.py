@@ -4,23 +4,23 @@ from app.models import db, Tag
 
 def seed_tags():
     tag1 = Tag(
-        tag_name='Demo',
+        tag_name='tag1',
         user_id=1)
 
     tag2 = Tag(
-        tag_name='Demo',
+        tag_name='tag2',
         user_id=1)
 
     tag3 = Tag(
-        tag_name='Demo',
+        tag_name='tag3',
         user_id=1)
 
     tag4 = Tag(
-        tag_name='Demo',
+        tag_name='tag4',
         user_id=1)
 
     tag5 = Tag(
-        tag_name='Demo',
+        tag_name='tag5',
         user_id=1)
 
 

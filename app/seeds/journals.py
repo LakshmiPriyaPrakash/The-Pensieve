@@ -4,15 +4,15 @@ from app.models import db, Journal
 
 def seed_journals():
     journal1 = Journal(
-        journal_name='Demo',
+        journal_name='Gratitude Journal',
         user_id=1)
 
     journal2 = Journal(
-        journal_name='Demo',
+        journal_name='Manifest Journal',
         user_id=1)
 
     journal3 = Journal(
-        journal_name='Demo',
+        journal_name='Musings',
         user_id=1)
 
 
