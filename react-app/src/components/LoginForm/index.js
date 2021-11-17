@@ -33,11 +33,11 @@ const LoginForm = () => {
   }
 
   return (
-    <div id="bg-img">
-			<div id="login-ctn">
+    <div className="bg-img">
+			<div className="login-ctn">
 				<img
         src='https://res.cloudinary.com/lpriya/image/upload/v1637111931/Pensieve/pensieve-logo4_cga3n7.jpg'
-        alt="login-logo"
+        alt="signup-logo"
         />
 				<h1>Pensieve</h1>
 				<p>A time capsule for your precious memories.</p>
@@ -67,7 +67,7 @@ const LoginForm = () => {
               onChange={updatePassword}
               required
             />
-            <button type='submit'id="submit-btn">Login</button>
+            <button type='submit'id="l-btn">Login</button>
           </div>
         </form>
         <div className="form-links">
