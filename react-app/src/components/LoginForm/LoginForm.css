@@ -18,12 +18,16 @@
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.login-ctn img {
+.login-ctn > img {
     width: 100px;
     height: 100px;
 }
 
-.login-ctn form {
+.login-ctn > h1, p {
+    font-family: 'Merienda', cursive;
+}
+
+.login-ctn > form {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -93,6 +97,7 @@ input:focus {
 
 .form-links > p {
     font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .switch-links {

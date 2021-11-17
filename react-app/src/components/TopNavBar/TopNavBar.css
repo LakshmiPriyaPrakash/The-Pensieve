@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Merienda', cursive;
+    font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     list-style-type: none;
 }
@@ -12,7 +12,7 @@ a {
     color: black;
 }
 
-.nav-bar{
+.nav-bar {
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -27,6 +27,7 @@ a {
     margin-top: 20px;
     margin-left: 20px;
     font-size: 45px;
+    font-family: 'Merienda', cursive;
 }
 
 #logo {
@@ -34,7 +35,7 @@ a {
     width: 50%;
 }
 
-#logo img{
+#logo img {
     width: 100px;
     height: 100px;
 }
@@ -53,14 +54,14 @@ a {
     cursor: pointer;
 }
 
-#login:hover{
+#login:hover {
     background-color: goldenrod;
 }
 
-#signup:hover{
+#signup:hover {
     background-color: goldenrod;
 }
 
-#demo:hover{
+#demo:hover {
     background-color: goldenrod;
 }
