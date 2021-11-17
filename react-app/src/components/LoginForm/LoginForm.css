@@ -23,6 +23,10 @@
     height: 100px;
 }
 
+.login-ctn > h1, p {
+    font-family: 'Merienda', cursive;
+}
+
 .login-ctn form {
     width: 100%;
     display: flex;
@@ -93,6 +97,7 @@ input:focus {
 
 .form-links > p {
     font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .switch-links {

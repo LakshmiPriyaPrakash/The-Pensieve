@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Merienda', cursive;
+    font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     list-style-type: none;
 }
@@ -27,6 +27,7 @@ a {
     margin-top: 20px;
     margin-left: 20px;
     font-size: 45px;
+    font-family: 'Merienda', cursive;
 }
 
 #logo {
