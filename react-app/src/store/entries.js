@@ -26,7 +26,7 @@ const deleteOneEntry = (deletedEntryId) => ({
 
 
 export const getEntries = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/${userId}/entries`);
+    const response = await fetch(`/api/entries/${userId}`);
 
     if (response.ok) {
       const entries = await response.json();
