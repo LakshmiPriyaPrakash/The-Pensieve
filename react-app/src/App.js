@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/LoginPage/LoginForm';
+import LoginForm from './components/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import TopNavBar from './components/TopNavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
