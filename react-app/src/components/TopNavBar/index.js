@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { login } from "../../store/session";
 import { useSelector, useDispatch } from "react-redux";
+import LogoutButton from "../auth/LogoutButton";
 import './TopNavBar.css'
 
 const TopNavBar = () => {
@@ -39,6 +40,9 @@ const TopNavBar = () => {
           onClick={() => dispatch(login(credential, password))}
         >
           Demo User
+        </div>
+        <div>
+          <LogoutButton />
         </div>
       </div>
     </nav>
