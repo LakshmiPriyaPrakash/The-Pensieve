@@ -1,0 +1,104 @@
+
+#bg-img {
+    background-image: url();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-ctn {
+    padding: 50px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 500px;
+    min-height: 700px;
+    background-color: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+#login-ctn img {
+    width: 100px;
+    height: 100px;
+}
+
+#login-ctn form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.errors {
+    color: red;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#login-ctn > p {
+    color: gray;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+
+.form-fields {
+    width: 80%;
+    margin: 10px;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 5px 5px rgb(245, 245, 208);
+    transition: all 0.20s ease-in-out;
+}
+
+
+.form-fields input{
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+#submit-btn {
+    width: 60%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: goldenrod;
+    cursor: pointer;
+    border: none;
+    color:white;
+    font-size: 24px;
+    margin-top: 30px;
+    margin-left: 60px;;
+
+}
+
+#submit-btn:hover {
+    background-color: gold;
+    color:black;
+}
+
+.form-links {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-links > p {
+    font-size: 18px;
+}
+
+.switch-links {
+    font-size: 16px;
+    color: goldenrod;
+}
+
+.switch-links:hover {
+    text-shadow: 1px 1px 1px rgb(241, 243, 113);
+}
