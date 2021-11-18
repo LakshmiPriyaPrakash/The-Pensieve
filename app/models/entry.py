@@ -35,9 +35,9 @@ class Entry(db.Model):
             'id': self.id,
             'entry_title': self.entry_title,
             'content': self.content,
-            'user': self.user.to_dict(),
-            'journal': self.journal.to_dict(),
-            'tags': [tag.to_dict() for tag in self.tags if tag],
+            # 'user': self.user.to_simple_dict(),
+            'journal_id': self.journal_id,
+            # 'tags': [tag.to_dict() for tag in self.tags if tag],
             'created': self.created_at,
             'updated': self.updated_at
         }

@@ -26,7 +26,7 @@ const deleteOneEntry = (deletedEntryId) => ({
 
 
 export const getEntries = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/${userId}/entries`);
+    const response = await fetch(`/api/entries/${userId}`);
 
     if (response.ok) {
       const entries = await response.json();
@@ -82,11 +82,11 @@ const initialState = {};
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_ENTRIES: {
-        const newState = {};
-        action.entries.forEach((entry) => {
-          newState[entry.id] = entry;
-        });
-        return newState;
+        // const newState = {};
+        // action.entries.forEach((entry) => {
+        //   newState[entry.id] = entry;
+        // });
+        return {...initialState, ...action.entries}
     }
     case ADD_ENTRY:{
         const newState = {...state}
