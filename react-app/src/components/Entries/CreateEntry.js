@@ -10,7 +10,7 @@ function WriteEntry() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [title, setTitle] = useState("Untitled");
+    const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [errors, setErrors] = useState([]);
 
@@ -19,11 +19,12 @@ function WriteEntry() {
 
         const user_id = user.id;
         const journal_id = 3;
+        const entry_title = title || "Untitled"
 
         const newEntry = {
             user_id,
             journal_id,
-            entry_title: title,
+            entry_title,
             content
         };
 

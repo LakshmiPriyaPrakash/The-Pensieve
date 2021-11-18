@@ -5,7 +5,6 @@ import './Entries.css';
 function EntryDetails() {
     const { entryId } = useParams();
     const entry = useSelector(state => state.entries[entryId]);
-    console.log(entry)
 
     if(entry) {
         return (
