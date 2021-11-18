@@ -10,7 +10,7 @@ function WriteEntry() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [title, setTitle] = useState("");
+    const [title, setTitle] = useState("Untitled");
     const [content, setContent] = useState("");
     const [errors, setErrors] = useState([]);
 
@@ -20,16 +20,13 @@ function WriteEntry() {
         const user_id = user.id;
         const journal_id = 3;
 
-        if(!title.length) {
-            setTitle("Untitled");
-        }
-
         const newEntry = {
             user_id,
             journal_id,
             entry_title: title,
             content
         };
+
 
         return dispatch(createEntry(newEntry))
                 .then((createdEntry)=> history.push(`/entries/${createdEntry.id}`))
@@ -40,7 +37,8 @@ function WriteEntry() {
 
       };
 
-      if(user) {
+
+
         return (
             <>
                 <div className="story-form-container">
@@ -76,11 +74,6 @@ function WriteEntry() {
                 </div>
             </>
         );
-      } else {
-          return (
-            history.push("/")
-          );
-      }
 }
 
 

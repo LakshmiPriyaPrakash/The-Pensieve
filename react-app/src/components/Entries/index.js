@@ -10,7 +10,7 @@ function UserEntries() {
 
     if(entries) {
 
-        const entriesArr = Object.values(entries);
+        const entriesArr = Object.values(entries).reverse();;
 
             return (
                 <>

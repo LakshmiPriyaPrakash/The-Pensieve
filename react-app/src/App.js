@@ -63,7 +63,7 @@ function App() {
         <ProtectedRoute path='/entries/:entryId' exact={true} >
           <EntryDetails />
         </ProtectedRoute>
-        <ProtectedRoute path='/entries/new' exact={true} >
+        <ProtectedRoute path='/entry/new' exact={true} >
           <WriteEntry />
         </ProtectedRoute>
       </Switch>

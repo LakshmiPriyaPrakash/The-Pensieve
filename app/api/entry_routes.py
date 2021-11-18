@@ -4,6 +4,16 @@ from app.forms import EntryForm
 
 entry_routes = Blueprint('entries', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
+
 
 @entry_routes.route('/<int:user_id>')
 def get_entries(user_id):
@@ -21,5 +31,5 @@ def create_entry():
         db.session.add(entry)
         db.session.commit()
         return entry.to_dict()
-    return "error~!!!!!!!!!!!!!!!!!!!"
-    # return {'errors': validation_errors_to_error_messages(form.errors)}
+    # return "error~!!!!!!!!!!!!!!!!!!!"
+    return {'errors': validation_errors_to_error_messages(form.errors)}
