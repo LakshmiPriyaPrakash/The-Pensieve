@@ -8,8 +8,10 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import { getEntries } from './store/entries';
 import EntryDetails from './components/Entries/EntryDetails';
 import UserEntries from './components/Entries';
+import WriteEntry from './components/Entries/CreateEntry';
 
 
 function App() {
@@ -26,7 +28,10 @@ function App() {
 
   if (!loaded) {
     return null;
+  } else {
+    dispatch(getEntries(user.id));
   }
+
 
   return (
     <BrowserRouter>
@@ -57,6 +62,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/entries/:entryId' exact={true} >
           <EntryDetails />
+        </ProtectedRoute>
+        <ProtectedRoute path='/entries/new' exact={true} >
+          <WriteEntry />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
