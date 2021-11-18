@@ -28,9 +28,9 @@ function App() {
 
   if (!loaded) {
     return null;
-  } else {
-    dispatch(getEntries(user.id));
   }
+
+  if(user) dispatch(getEntries(user.id));
 
 
   return (
