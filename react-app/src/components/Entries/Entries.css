@@ -70,3 +70,77 @@
     padding: 10px;
     white-space: pre-wrap;
 }
+
+.story-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.ws-title {
+    margin-top: 30px;
+    margin-left: 250px;
+}
+
+.story-form {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+}
+
+.ws-errors {
+    color: rgb(255, 73, 73);
+}
+
+.ws-form-field {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.sf-input {
+    height: 50px;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+
+}
+
+.sf-content {
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.sf-input:focus {
+    outline: none;
+    box-shadow: 0 0 5px 5px rgb(215, 231, 250);
+    transition: all 0.20s ease-in-out;
+
+}
+
+.sf-content:focus {
+    outline: none;
+    box-shadow: 0 0 5px 5px rgb(215, 231, 250);
+    transition: all 0.20s ease-in-out;
+
+}
+
+.ws-button {
+    margin: 30px;
+    background-color: transparent;
+    border-radius: 30px;
+    width: 20%;
+    height: 40px;
+    border-color:rgb(0, 183, 255);
+    margin-left: 40%;
+    cursor: pointer;
+}

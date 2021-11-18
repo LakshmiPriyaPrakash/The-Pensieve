@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getEntries } from '../../store/entries';
 import './Entries.css';
 
 
 function UserEntries() {
-    const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    const [isLoaded, setIsLoaded] = useState(false);
-
-    useEffect(() => {
-        dispatch(getEntries(user.id)).then(() => setIsLoaded(true));
-      }, [user]);
-
     const entries = useSelector(state => state.entries);
 
-    if(isLoaded) {
+    if(entries) {
 
-        const entriesArr = Object.values(entries);
+        const entriesArr = Object.values(entries).reverse();;
 
             return (
                 <>
