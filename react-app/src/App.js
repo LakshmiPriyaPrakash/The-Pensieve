@@ -12,6 +12,7 @@ import { getEntries } from './store/entries';
 import EntryDetails from './components/Entries/EntryDetails';
 import UserEntries from './components/Entries';
 import WriteEntry from './components/Entries/CreateEntry';
+import EditEntry from './components/Entries/EditEntry';
 
 
 function App() {
@@ -65,6 +66,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/entry/new' exact={true} >
           <WriteEntry />
+        </ProtectedRoute>
+        <ProtectedRoute path='/edit/entry/:entryId' exact={true} >
+          <EditEntry />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

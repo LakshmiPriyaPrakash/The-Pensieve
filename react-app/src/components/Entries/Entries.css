@@ -144,3 +144,17 @@
     margin-left: 40%;
     cursor: pointer;
 }
+
+
+.edit-del-btn{
+    margin: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgb(24, 113, 216);
+    text-decoration: underline;
+}
+
+#e-d-btn-ctn {
+    display: flex;
+}
