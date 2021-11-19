@@ -9,12 +9,21 @@ function EntryDetails() {
     const history = useHistory();
     const { entryId } = useParams();
     const entry = useSelector(state => state.entries[entryId]);
+    const journals = useSelector(state => state.journals);
+    const journalsArr = Object.values(journals);
+    const journal = journalsArr.filter(journal => journal.id === entry.journal_id)[0]
 
-    if(entry) {
+
+    if(entry && journal) {
         return (
             <>
                 <div id="story-comments">
                     <div id="story-dets">
+                        <div>
+                            <i className="fas fa-book"></i>
+                            {journal.journal_name}
+                        </div>
+
                         <h2 className="story-elements">{entry.entry_title}</h2>
                         <p className="story-elements story-body">{entry.content}</p>
                     </div>
