@@ -1,39 +1,34 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateEntry } from "../../store/entries";
+import { updateJournal } from "../../store/journals";
 import { useHistory, useParams } from 'react-router-dom';
-import './Entries.css'
+import './Journals.css'
 
 
-function EditEntry() {
+function EditJournal() {
     const user = useSelector(state => state.session.user);
-    const { entryId } = useParams();
-    const entry = useSelector(state => state.entries[entryId]);
+    const { journalId } = useParams();
+    const journal = useSelector(state => state.journals[journalId]);
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [title, setTitle] = useState(entry.entry_title);
-    const [content, setContent] = useState(entry.content);
+    const [name, setName] = useState(journal.journal_name);
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const user_id = user.id;
-        const journal_id = 3;
-        const entry_title = title || "Untitled"
 
-        const editedEntry = {
-            id: entry.id,
+        const editedJournal = {
+            id: journal.id,
             user_id,
-            journal_id,
-            entry_title,
-            content
+            journal_name: name
         };
 
 
-        return dispatch(updateEntry(editedEntry))
-                .then((updatedEntry)=> history.push(`/entries/${updatedEntry.id}`))
+        return dispatch(updateJournal(editedJournal))
+                .then((updatedJournal)=> history.push(`/journals/${updatedJournal.id}`))
                 .catch(async (res) => {
                     const data = await res.json();
                     if (data && data.errors) setErrors(data.errors);
@@ -47,28 +42,19 @@ function EditEntry() {
             <>
                 <div className="story-form-container">
                         <form className="story-form" onSubmit={handleSubmit}>
-                        <h2 className="ws-title">Your thoughts...</h2>
+                        <h2 className="ws-title">Edit Journal</h2>
                         <ul className="ws-errors">
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                         </ul>
                         <div className="ws-form-field">
                                 <input
                                 className="sf-input"
-                                id="title"
+                                id="name"
                                 type="text"
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
                                 autoFocus={true}
-                                />
-                        </div>
-                        <div className="ws-form-field">
-                                <textarea
-                                className="sf-content"
-                                id="content"
-                                rows="15"
-                                cols="70"
-                                value={content}
-                                onChange={(e) => setContent(e.target.value)}
+                                required
                                 />
                         </div>
                         <button className="ws-button" type="submit">Update</button>
@@ -80,4 +66,4 @@ function EditEntry() {
 
 
 
-export default EditEntry;
+export default EditJournal;
