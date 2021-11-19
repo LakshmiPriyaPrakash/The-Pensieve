@@ -16,6 +16,7 @@ import WriteEntry from './components/Entries/CreateEntry';
 import EditEntry from './components/Entries/EditEntry';
 import UserJournals from './components/Journals';
 import CreateJournal from './components/Journals/CreateJournal';
+import JournalDetails from './components/Journals/JournalDetails';
 
 
 
@@ -82,6 +83,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/journal/new' exact={true} >
           <CreateJournal />
+        </ProtectedRoute>
+        <ProtectedRoute path='/journals/:journalId' exact={true} >
+          <JournalDetails />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

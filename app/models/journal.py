@@ -19,7 +19,7 @@ class Journal(db.Model):
         return {
             'id': self.id,
             'journal_name': self.journal_name,
-            # 'entries': [entry.to_dict() for entry in self.entries if entry],
+            'entries': [entry.to_simple_dict() for entry in self.entries if entry],
             # 'user': self.user.to_dict(),
             'created': self.created_at,
             'updated': self.updated_at

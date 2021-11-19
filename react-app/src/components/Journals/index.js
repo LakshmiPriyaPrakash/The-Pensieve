@@ -22,7 +22,7 @@ function UserJournals() {
                                     <div className="story-container">
                                         <div className="story-details">
                                             <NavLink className="story-link" to={`/journals/${journal.id}`}>
-                                                <h2>{journal.journal_name}</h2>
+                                                <h2>{journal.journal_name} ({journal.entries.length})</h2>
                                             </NavLink>
                                         </div>
                                     </div>
