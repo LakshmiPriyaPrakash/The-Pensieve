@@ -24,6 +24,7 @@ function EditEntry() {
         const entry_title = title || "Untitled"
 
         const editedEntry = {
+            id: entry.id,
             user_id,
             journal_id,
             entry_title,
