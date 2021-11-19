@@ -33,3 +33,25 @@ def create_entry():
         return entry.to_dict()
     # return "error~!!!!!!!!!!!!!!!!!!!"
     return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+@entry_routes.route('/<int:id>', methods=["PUT"])
+def update_entry(id):
+    entry = Entry.query.get(id)
+    form = EntryForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        form.populate_obj(entry)
+        db.session.commit()
+        entry = Entry.query.get(id)
+        return entry.to_dict()
+    # return "error~!!!!!!!!!!!!!!!!!!!"
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+@entry_routes.route("/<int:id>", methods=["DELETE"])
+def delete_entry(id):
+    entry = Entry.query.get(id)
+    db.session.delete(entry)
+    db.session.commit()
+    return {"id": id}
