@@ -66,7 +66,7 @@ export const updateEntry = (updateEntry) => async (dispatch) => {
 
 
 export const deleteEntry = (entryId) => async (dispatch) => {
-  const response = await fetch(`/api/entries/delete/${entryId}`, {
+  const response = await fetch(`/api/entries/${entryId}`, {
     method: "DELETE"
   });
 
@@ -100,7 +100,7 @@ export default function reducer(state = initialState, action) {
     }
     case DELETE_ENTRY:{
       const newState = {...state}
-      delete newState[action.deletedEntryId]
+      delete newState[action.deletedEntryId.id]
       return newState;
     }
     default:

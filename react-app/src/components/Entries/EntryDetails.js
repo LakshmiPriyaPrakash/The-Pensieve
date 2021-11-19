@@ -1,13 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useHistory, useParams, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteEntry } from "../../store/entries";
-import { FaEdit } from 'react-icons/fa';
-import { RiDeleteBin5Line } from 'react-icons/ri';
 import './Entries.css';
 
 function EntryDetails() {
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch();
+    const history = useHistory();
     const { entryId } = useParams();
     const entry = useSelector(state => state.entries[entryId]);
 
@@ -21,7 +20,7 @@ function EntryDetails() {
                     </div>
                     <div id="e-d-btn-ctn">
                         <NavLink to={`/edit/entry/${entry.id}`}>
-                            <button className="edit-del-btn" type="submit"><FaEdit size={20} /></button>
+                            <button className="edit-del-btn" type="submit"><i className="far fa-edit"></i></button>
                         </NavLink>
                             <button className="edit-del-btn" type="submit"
                                 onClick={() => {
@@ -29,7 +28,7 @@ function EntryDetails() {
                                         .then(()=> history.push(`/${user.username}/entries`))
                                 }
                             }>
-                                    <RiDeleteBin5Line size={20} />
+                                    <i className="far fa-trash-alt"></i>
                             </button>
                         </div>
                 </div>
