@@ -36,7 +36,7 @@ export const getJournals = (userId) => async (dispatch) => {
 
 
 export const createJournal = (newJournal) => async (dispatch) => {
-  const response = await fetch(`/api/journals`, {
+  const response = await fetch(`/api/journals/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(newJournal),

@@ -15,6 +15,7 @@ import UserEntries from './components/Entries';
 import WriteEntry from './components/Entries/CreateEntry';
 import EditEntry from './components/Entries/EditEntry';
 import UserJournals from './components/Journals';
+import CreateJournal from './components/Journals/CreateJournal';
 
 
 
@@ -78,6 +79,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/:username/journals' exact={true} >
           <UserJournals />
+        </ProtectedRoute>
+        <ProtectedRoute path='/journal/new' exact={true} >
+          <CreateJournal />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
