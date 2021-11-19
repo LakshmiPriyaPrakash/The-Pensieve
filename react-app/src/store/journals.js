@@ -26,7 +26,7 @@ const deleteOneJournal = (deletedJournalId) => ({
 
 
 export const getJournals = (userId) => async (dispatch) => {
-    const response = await fetch(`/api/${userId}/journals`);
+    const response = await fetch(`/api/journals/${userId}`);
 
     if (response.ok) {
       const journals = await response.json();
@@ -66,7 +66,7 @@ export const updateJournal = (updateJournal) => async (dispatch) => {
 
 
 export const deleteJournal = (journalId) => async (dispatch) => {
-  const response = await fetch(`/api/journals/delete/${journalId}`, {
+  const response = await fetch(`/api/journals/${journalId}`, {
     method: "DELETE"
   });
 
@@ -82,11 +82,7 @@ const initialState = {};
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOAD_JOURNALS: {
-        const newState = {};
-        action.journals.forEach((journal) => {
-          newState[journal.id] = journal;
-        });
-        return newState;
+        return {...initialState, ...action.journals}
     }
     case ADD_JOURNAL:{
         const newState = {...state}
@@ -100,7 +96,7 @@ export default function reducer(state = initialState, action) {
     }
     case DELETE_JOURNAL:{
       const newState = {...state}
-      delete newState[action.deletedJournalId]
+      delete newState[action.deletedJournalId.id]
       return newState;
     }
     default:
