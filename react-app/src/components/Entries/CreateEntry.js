@@ -18,7 +18,7 @@ function WriteEntry() {
         e.preventDefault();
 
         const user_id = user.id;
-        const journal_id = 8;
+        const journal_id = 9;
         const entry_title = title || "Untitled"
 
         const newEntry = {

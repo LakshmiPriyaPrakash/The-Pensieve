@@ -12,9 +12,9 @@ function JournalDetails() {
     const entries = useSelector(state => state.entries);
     const entriesArr = Object.values(entries);
     const journalEntries = entriesArr.filter(entry => entry.journal_id === Number(journalId))
-    // const entries = journal.entries;
 
-    if(journal ) {
+
+    if(journal && journalEntries) {
         return (
             <>
                 <div id="story-comments">
