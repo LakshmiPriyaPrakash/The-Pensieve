@@ -9,16 +9,19 @@ function JournalDetails() {
     const history = useHistory();
     const { journalId } = useParams();
     const journal = useSelector(state => state.journals[journalId]);
-    const entries = journal.entries;
+    const entries = useSelector(state => state.entries);
+    const entriesArr = Object.values(entries);
+    const journalEntries = entriesArr.filter(entry => entry.journal_id === Number(journalId))
+    // const entries = journal.entries;
 
-    if(journal) {
+    if(journal ) {
         return (
             <>
                 <div id="story-comments">
                     <div id="story-dets">
-                        <h2 className="story-elements">{journal.journal_name} ({entries.length})</h2>
+                        <h2 className="story-elements">{journal.journal_name} </h2>
                         <ul>
-                            {entries.map(entry => {
+                            {journalEntries.map(entry => {
                                 return(
                                     <li key={entry.id} className="feed-list">
                                         <div className="story-container">
