@@ -11,10 +11,14 @@ function EntryDetails() {
     const entry = useSelector(state => state.entries[entryId]);
     const journals = useSelector(state => state.journals);
     const journalsArr = Object.values(journals);
-    const journal = journalsArr.filter(journal => journal.id === entry.journal_id)[0]
+
+    let journal;
+    if(entry) {
+        journal = journalsArr.filter(journal => journal.id === entry.journal_id)[0]
+    }
 
 
-    if(entry && journal) {
+    if(entry) {
         return (
             <>
                 <div id="story-comments">

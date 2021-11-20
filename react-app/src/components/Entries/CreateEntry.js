@@ -9,6 +9,9 @@ function WriteEntry() {
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     const history = useHistory();
+    const journals = useSelector(state => state.journals);
+    const journalsArr = Object.values(journals);
+    const journal = journalsArr[0];
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -18,12 +21,11 @@ function WriteEntry() {
         e.preventDefault();
 
         const user_id = user.id;
-        const journal_id = 9;
         const entry_title = title || "Untitled"
 
         const newEntry = {
             user_id,
-            journal_id,
+            journal_id: journal.id,
             entry_title,
             content
         };

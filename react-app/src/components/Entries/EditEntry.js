@@ -20,7 +20,7 @@ function EditEntry() {
         e.preventDefault();
 
         const user_id = user.id;
-        const journal_id = 3;
+        const journal_id = entry.journal_id;
         const entry_title = title || "Untitled"
 
         const editedEntry = {
