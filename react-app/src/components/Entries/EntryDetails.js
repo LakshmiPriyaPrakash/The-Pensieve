@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { useHistory, useParams, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteEntry } from "../../store/entries";
@@ -11,6 +12,7 @@ function EntryDetails() {
     const entry = useSelector(state => state.entries[entryId]);
     const journals = useSelector(state => state.journals);
     const journalsArr = Object.values(journals);
+    const [showList, setShowList] = useState(false);
 
     let journal;
     if(entry) {
@@ -24,10 +26,22 @@ function EntryDetails() {
                 <div id="story-comments">
                     <div id="story-dets">
                         <div>
-                            <i className="fas fa-book"></i>
+                            <i className="fas fa-book" onClick={()=> setShowList(!showList)}></i>
                             {journal.journal_name}
                         </div>
-
+                        {showList &&
+                            <div>
+                                <ul>
+                                    {journalsArr.map(journal => {
+                                        return(
+                                            <li key={journal.id}>
+                                                {journal.journal_name}
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </div>
+                        }
                         <h2 className="story-elements">{entry.entry_title}</h2>
                         <p className="story-elements story-body">{entry.content}</p>
                     </div>
