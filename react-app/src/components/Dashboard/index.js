@@ -20,9 +20,6 @@ const Dashboard = () => {
                 <div id="dashboard-info">
                     <h2>{`Welcome back,  ${user.first_name}`}</h2>
                 </div>
-                {/* <div id="dash-photo-div">
-                    <img src="" alt="Landing Page" />
-                </div> */}
                 <div id="dashboard-entries">
                     <div id="entry-dash-info">
                         <span style={{ marginRight: "auto" }}>Recent Entries</span>

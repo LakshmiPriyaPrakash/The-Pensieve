@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, NavLink } from 'react-router-dom';
+import { Redirect, NavLink, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css'
 
@@ -11,6 +11,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -35,12 +36,14 @@ const LoginForm = () => {
   return (
     <div className="bg-img">
 			<div className="login-ctn">
-				<img
-        src='https://res.cloudinary.com/lpriya/image/upload/v1637111931/Pensieve/pensieve-logo4_cga3n7.jpg'
-        alt="signup-logo"
-        />
-				<h1>Pensieve</h1>
-				<p>A time capsule for your precious memories.</p>
+        <div className="logo-name" onClick={() => history.push("/")}>
+          <img
+          src='https://res.cloudinary.com/lpriya/image/upload/v1637620008/Pensieve/pensieve-logo_xsepmf.png'
+          alt="signup-logo"
+          />
+          <h1>Pensieve</h1>
+          <p>A time capsule for your precious memories.</p>
+        </div>
         <form onSubmit={onLogin}>
           <ul className="errors">
             {errors.map((error, ind) => (

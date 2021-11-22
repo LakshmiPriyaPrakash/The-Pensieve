@@ -20,7 +20,7 @@ const TopNavBar = () => {
     <nav className="nav-bar">
       <div id="logo">
 				<img
-          src='https://res.cloudinary.com/lpriya/image/upload/v1637111931/Pensieve/pensieve-logo4_cga3n7.jpg'
+          src='https://res.cloudinary.com/lpriya/image/upload/v1637620008/Pensieve/pensieve-logo_xsepmf.png'
           alt="Pensieve Logo"
         />
         <NavLink to='/' exact={true} activeClassName='active'>

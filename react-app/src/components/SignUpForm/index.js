@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, NavLink } from 'react-router-dom';
+import { Redirect, NavLink, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { createJournal } from "../../store/journals";
 import './SignUpForm.css'
@@ -15,6 +15,7 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -70,12 +71,14 @@ const SignUpForm = () => {
   return (
     <div className="bg-img">
       <div className="login-ctn">
-        <img
-        src='https://res.cloudinary.com/lpriya/image/upload/v1637111931/Pensieve/pensieve-logo4_cga3n7.jpg'
-        alt="login-logo"
-        />
-        <h1>Pensieve</h1>
-        <p>A time capsule for your precious memories.</p>
+        <div className="logo-name" onClick={() => history.push("/")}>
+          <img
+          src='https://res.cloudinary.com/lpriya/image/upload/v1637620008/Pensieve/pensieve-logo_xsepmf.png'
+          alt="login-logo"
+          />
+          <h1>Pensieve</h1>
+          <p>A time capsule for your precious memories.</p>
+        </div>
         <form onSubmit={onSignUp}>
           <ul className="errors">
             {errors.map((error, ind) => (

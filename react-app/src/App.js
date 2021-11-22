@@ -46,18 +46,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      {!user &&
-        <TopNavBar />
-      }
       {user &&
         <SideNavBar />
       }
       <Switch>
-        {!user &&
-          <Route path='/' exact={true}>
-            <SplashPage />
-          </Route>
-        }
+        <Route path='/' exact={true}>
+          {!user && <TopNavBar />}
+          {!user && <SplashPage /> }
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
