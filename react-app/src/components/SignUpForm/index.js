@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { createJournal } from "../../store/journals";
 import './SignUpForm.css'
 
 const SignUpForm = () => {
@@ -52,6 +53,17 @@ const SignUpForm = () => {
   };
 
   if (user) {
+    if(user.journals.length === 0) {
+      const user_id = user.id;
+
+          const newJournal = {
+              user_id,
+              journal_name: "First Journal"
+          };
+
+          dispatch(createJournal(newJournal))
+    }
+
     return <Redirect to={`/${user.username}/dashboard`} />;
   }
 

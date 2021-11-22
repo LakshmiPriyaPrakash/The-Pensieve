@@ -13,7 +13,7 @@ function UserJournals() {
         const journalsArr = Object.values(journals);;
 
             return (
-                <>
+                <div className="adjust">
                     <h2 className="rec-title">User journals</h2>
                     <ul>
                         {journalsArr.map(journal => {
@@ -30,7 +30,7 @@ function UserJournals() {
                             )
                         })}
                     </ul>
-                </>
+                </div>
             )
     } else {
         return null;
