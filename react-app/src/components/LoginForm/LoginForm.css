@@ -8,6 +8,7 @@
 }
 
 .login-ctn {
+    margin-top: 100px;
     padding: 50px;
     display: flex;
     flex-direction:column;
@@ -18,13 +19,27 @@
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.login-ctn > img {
+.logo-name {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo-name > img {
     width: 100px;
     height: 100px;
 }
 
-.login-ctn > h1, p {
+.logo-name > h1, p {
     font-family: 'Merienda', cursive;
+}
+
+.logo-name > p {
+    color: gray;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 .login-ctn > form {
@@ -39,14 +54,6 @@
     font-size: 16px;
     margin-bottom: 10px;
 }
-
-.login-ctn > p {
-    color: gray;
-    font-size: 18px;
-    padding-top: 20px;
-    padding-bottom: 30px;
-}
-
 
 .form-fields {
     width: 80%;
