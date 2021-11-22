@@ -38,7 +38,7 @@ const LoginForm = () => {
 			<div className="login-ctn">
         <div className="logo-name" onClick={() => history.push("/")}>
           <img
-          src='https://res.cloudinary.com/lpriya/image/upload/v1637111931/Pensieve/pensieve-logo4_cga3n7.jpg'
+          src='https://res.cloudinary.com/lpriya/image/upload/v1637620008/Pensieve/pensieve-logo_xsepmf.png'
           alt="signup-logo"
           />
           <h1>Pensieve</h1>

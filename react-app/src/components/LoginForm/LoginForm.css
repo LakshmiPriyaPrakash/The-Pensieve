@@ -1,22 +1,25 @@
 
 .bg-img {
-    background-image: url();
+    background-image: url("../utils/night-sky-stars.gif");
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 100px;
+    height: 100vh;
+    width: 100vw;
 }
 
 .login-ctn {
     margin-top: 100px;
+    margin-bottom: 100px;
     padding: 50px;
     display: flex;
     flex-direction:column;
     align-items: center;
     width: 500px;
     min-height: 700px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.876);
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 10px;
 }
 
 .logo-name {
@@ -110,6 +113,7 @@ input:focus {
 .switch-links {
     font-size: 16px;
     color: goldenrod;
+    font-weight: bold;
 }
 
 .switch-links:hover {
