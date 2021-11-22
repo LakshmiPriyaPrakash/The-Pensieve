@@ -18,6 +18,7 @@ import UserJournals from './components/Journals';
 import CreateJournal from './components/Journals/CreateJournal';
 import JournalDetails from './components/Journals/JournalDetails';
 import EditJournal from './components/Journals/EditJournal';
+import SideNavBar from './components/SideNavBar';
 
 
 
@@ -45,7 +46,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <TopNavBar />
+      {!user &&
+        <TopNavBar />
+      }
+      {user &&
+        <SideNavBar />
+      }
       <Switch>
         {!user &&
           <Route path='/' exact={true}>

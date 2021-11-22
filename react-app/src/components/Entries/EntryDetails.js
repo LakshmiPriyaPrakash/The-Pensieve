@@ -55,8 +55,8 @@ function EntryDetails() {
             <>
                 <div id="story-comments">
                     <div id="story-dets">
-                        <div>
-                            <i className="fas fa-book" onClick={()=> setShowList(!showList)}></i>
+                        <div onClick={()=> setShowList(!showList)}>
+                            <i className="fas fa-book" ></i>
                             {journal.journal_name}
                         </div>
                         {showList &&

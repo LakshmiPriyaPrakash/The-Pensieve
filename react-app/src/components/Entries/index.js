@@ -13,7 +13,7 @@ function UserEntries() {
         const entriesArr = Object.values(entries).reverse();;
 
             return (
-                <>
+                <div className="adjust">
                     <h2 className="rec-title">User entries</h2>
                     <ul>
                         {entriesArr.map(entry => {
@@ -31,7 +31,7 @@ function UserEntries() {
                             )
                         })}
                     </ul>
-                </>
+                </div>
             )
     } else {
         return null;
