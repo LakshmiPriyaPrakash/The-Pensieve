@@ -16,15 +16,15 @@ const Dashboard = () => {
 
 
         return (
-            <div className="home-page-content">
-                <div id="home-page-info">
-                    <h2>{`Welcome back,  ${user.username}`}</h2>
+            <div className="dashboard-content">
+                <div id="dashboard-info">
+                    <h2>{`Welcome back,  ${user.first_name}`}</h2>
                 </div>
-                {/* <div id="home-photo-div">
+                {/* <div id="dash-photo-div">
                     <img src="" alt="Landing Page" />
                 </div> */}
-                <div id="home-page-entries">
-                    <div id="entry-home-info">
+                <div id="dashboard-entries">
+                    <div id="entry-dash-info">
                         <span style={{ marginRight: "auto" }}>Recent Entries</span>
                         <i
                             id="new-entry-hover"
@@ -70,8 +70,8 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                <div id="home-page-journals">
-                    <div id="entry-home-info">
+                <div id="dashboard-journals">
+                    <div id="entry-dash-info">
                         <span style={{ marginRight: "auto" }}>Your Journals</span>
                         <i
                             id="new-entry-hover"
@@ -80,7 +80,7 @@ const Dashboard = () => {
                             onClick={() => history.push("/journal/new")}
                         ></i>
                     </div>
-                    <div id="show-home-journals">
+                    <div id="show-dash-journals">
                         {journalsArr.map((journal) => {
                             return (
                                 <div id="journal-card" key={journal.id}>
