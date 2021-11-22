@@ -10,7 +10,7 @@ function UserJournals() {
 
     if(journals) {
 
-        const journalsArr = Object.values(journals);;
+        const journalsArr = Object.values(journals);
 
             return (
                 <div className="adjust">

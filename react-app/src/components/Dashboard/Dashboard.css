@@ -1,0 +1,156 @@
+.dashboard-content{
+    margin-left: 300px;
+    background-color: #F2F2F2;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+#dash-photo-div{
+    flex:1;
+    z-index: 0;
+}
+
+#dash-photo-div img{
+    width: 100%;
+    max-height: 60vh;
+    object-fit: cover;
+}
+
+#dashboard-info{
+    color:black;
+    z-index: 1;
+}
+
+#dashboard-info h2{
+    margin: 15px 0px 0px 30px;
+    font-size: 20px;
+}
+
+#dashboard-entries{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+    width: 48vw;
+    height: 360px;
+    background-color: white;
+    border-radius: 10px;
+    border: transparent;
+    display: flex;
+    flex-direction: column;
+    margin: 100px;
+
+}
+
+#entry-dash-info{
+    width: 100%;
+    height: fit-content;
+    margin-top: 10px;
+    border-bottom: 2px solid #727272;
+}
+
+#entry-dash-info span{
+    font-size: 25px;
+    padding: 30px;
+}
+
+#recent-entries{
+    flex:1;
+    display: flex;
+    margin-top: 10px;
+    height: 300px;
+    overflow: auto;
+}
+
+#entry-card{
+    width: 175px;
+    display: flex;
+    max-height: 80%;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+    padding: 5px;
+    margin: 10px;
+}
+
+#entry-card h2{
+    font-size: 16px;
+    max-height: 50px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    padding-left: 5px;
+}
+
+#entry-card h3{
+    font-size: 12px;
+    color: #737373;
+    overflow:hidden;
+    max-height: 150px;
+    margin-top: 10px;
+}
+
+#entry-card:hover{
+    cursor: pointer;
+}
+
+#box{
+    display: flex;
+}
+
+
+#entry-card-link{
+    background-color: #F8F8F8;
+    width: 175px;
+    display: flex;
+    max-height: 80%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+    padding: 5px;
+    margin: 10px;
+}
+
+#entry-card-link:hover{
+    cursor: pointer;
+}
+
+#new-entry-hover:hover{
+    cursor: pointer;
+    color:goldenrod;
+}
+
+#dashboard-journals{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+    width: 28vw;
+    height: 360px;
+    background-color: white;
+    border-radius: 10px;
+    border: transparent;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-bottom: 100px;
+}
+
+#show-dash-journals{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    overflow: auto;
+}
+
+#journal-card{
+    width: 90%;
+    display: flex;
+    max-height: 80%;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+    padding: 5px;
+    margin: 10px;
+}
+
+#journal-card:hover{
+    cursor: pointer;
+}

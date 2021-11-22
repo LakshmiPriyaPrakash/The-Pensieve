@@ -1,17 +1,20 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect, useHistory } from 'react-router-dom';
 import { login } from "../../store/session";
 import { useSelector, useDispatch } from "react-redux";
-import LogoutButton from "../auth/LogoutButton";
 import './TopNavBar.css'
 
 const TopNavBar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
+  const history = useHistory();
   const credential = "demo@demo.com";
   const password = "password";
 
+  if (user) {
+    return <Redirect to={`/${user.username}/dashboard`} />;
+  }
 
   return (
     <nav className="nav-bar">
@@ -37,12 +40,9 @@ const TopNavBar = () => {
         </div>
         <div
           id="demo"
-          onClick={() => dispatch(login(credential, password))}
+          onClick={() => dispatch(login(credential, password)) }
         >
           Demo User
-        </div>
-        <div>
-          <LogoutButton />
         </div>
       </div>
     </nav>

@@ -5,8 +5,6 @@ import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
 import TopNavBar from './components/TopNavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
 import { authenticate } from './store/session';
 import { getEntries } from './store/entries';
 import { getJournals } from './store/journals';
@@ -19,6 +17,8 @@ import CreateJournal from './components/Journals/CreateJournal';
 import JournalDetails from './components/Journals/JournalDetails';
 import EditJournal from './components/Journals/EditJournal';
 import SideNavBar from './components/SideNavBar';
+import Dashboard from './components/Dashboard';
+import SplashPage from './components/SplashPage';
 
 
 
@@ -55,7 +55,7 @@ function App() {
       <Switch>
         {!user &&
           <Route path='/' exact={true}>
-            <h1>Landing page</h1>
+            <SplashPage />
           </Route>
         }
         <Route path='/login' exact={true}>
@@ -64,14 +64,8 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
         <ProtectedRoute path='/:username/dashboard' exact={true} >
-          <h1>My Home Page</h1>
+          <Dashboard />
         </ProtectedRoute>
         <ProtectedRoute path='/:username/entries' exact={true} >
           <UserEntries />

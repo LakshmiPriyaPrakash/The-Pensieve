@@ -31,7 +31,7 @@ function SideNavBar() {
 
 			<NavLink
 				exact
-				to="/"
+				to={`/${user.username}/dashboard`}
 				activeClassName="side-bar-selected"
 				id="side-bar-active"
 			>
