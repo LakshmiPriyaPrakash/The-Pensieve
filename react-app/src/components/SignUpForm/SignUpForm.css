@@ -16,3 +16,17 @@
     background-color: gold;
     color:black;
 }
+
+#s-demo {
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+#s-demo:hover {
+    color: goldenrod;
+    text-shadow: 3px 3px 3px rgb(44, 44, 41);
+    font-weight: bold;
+}

@@ -43,11 +43,25 @@
 	margin-right: 5px;
 }
 
-#footer-container{
-    margin-top: auto;
+#f-wrapper{
+	margin-top: auto;
     margin-bottom: 10px;
     display: flex;
+	flex-direction: column;
     justify-content: center;
+}
+
+#f-wrapper h4 {
+	margin-left: 20px;
+}
+
+#footer-container{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-icon {
+	padding: 0px 20px 20px 20px;
 }
 
 .footer-icon:hover{

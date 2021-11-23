@@ -119,3 +119,16 @@ input:focus {
 .switch-links:hover {
     text-shadow: 1px 1px 1px rgb(241, 243, 113);
 }
+
+#l-demo {
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#l-demo:hover {
+    color: goldenrod;
+    text-shadow: 3px 3px 3px rgb(44, 44, 41);
+    font-weight: bold;
+}

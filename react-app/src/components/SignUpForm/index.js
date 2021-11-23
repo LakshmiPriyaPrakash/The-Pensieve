@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink, useHistory } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { signUp, login } from '../../store/session';
 import { createJournal } from "../../store/journals";
 import './SignUpForm.css'
 
@@ -16,6 +16,8 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
+  const credential = "demo@demo.com";
+  const pass = "password";
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -148,6 +150,12 @@ const SignUpForm = () => {
           </div>
           <button type='submit' id="s-btn">Sign Up</button>
         </form>
+        <div
+          id="s-demo"
+          onClick={() => dispatch(login(credential, pass)) }
+        >
+          Demo User
+        </div>
         <div className="form-links">
           <p>Already have an account?</p>
             <NavLink to="/login" className="switch-links">

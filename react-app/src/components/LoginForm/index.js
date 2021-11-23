@@ -12,6 +12,8 @@ const LoginForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
+  const credential = "demo@demo.com";
+  const pass = "password";
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -73,6 +75,12 @@ const LoginForm = () => {
             <button type='submit'id="l-btn">Login</button>
           </div>
         </form>
+        <div
+          id="l-demo"
+          onClick={() => dispatch(login(credential, pass)) }
+        >
+          Demo User
+        </div>
         <div className="form-links">
 					<p>Don't have an account?</p>
             <NavLink to="/sign-up" className="switch-links">
