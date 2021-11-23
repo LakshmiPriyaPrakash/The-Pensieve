@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavLink, Redirect, useHistory } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { login } from "../../store/session";
 import { useSelector, useDispatch } from "react-redux";
 import './TopNavBar.css'
@@ -8,7 +8,6 @@ import './TopNavBar.css'
 const TopNavBar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
-  const history = useHistory();
   const credential = "demo@demo.com";
   const password = "password";
 
