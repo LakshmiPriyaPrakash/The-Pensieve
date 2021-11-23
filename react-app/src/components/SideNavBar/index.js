@@ -55,26 +55,29 @@ function SideNavBar() {
 				Logout
 			</div>
 
-			<div id="footer-container">
-				<Link
-                    to={{ pathname: "https://www.linkedin.com/in/lakshmi-priya-prakash/" }}
-					target="_blank"
-				>
-					<i
-						className="fab fa-linkedin footer-icon fa-2x"
-						style={{ paddingRight: 10 }}
-					></i>
-				</Link>
+			<div id="f-wrapper">
+				<h4>Lakshmi Priya Prakash</h4>
+				<div id="footer-container">
+					<Link
+						to={{ pathname: "https://www.linkedin.com/in/lakshmi-priya-prakash/" }}
+						target="_blank"
+					>
+						<i
+							className="fab fa-linkedin footer-icon fa-2x"
 
-				<Link
-					to={{ pathname: "https://github.com/LakshmiPriyaPrakash" }}
-					target="_blank"
-				>
-					<i
-						className="fab fa-github footer-icon fa-2x"
-						style={{ paddingLeft: 10 }}
-					></i>
-				</Link>
+						/>
+					</Link>
+
+					<Link
+						to={{ pathname: "https://github.com/LakshmiPriyaPrakash" }}
+						target="_blank"
+					>
+						<i
+							className="fab fa-github footer-icon fa-2x"
+
+						/>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
