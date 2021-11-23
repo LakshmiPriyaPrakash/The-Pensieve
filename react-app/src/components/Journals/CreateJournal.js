@@ -24,15 +24,14 @@ function CreateJournal() {
         };
 
 
-        return dispatch(createJournal(newJournal))
-                .then(()=> history.push(`/${user.username}/journals`))
-                .catch(async (res) => {
-                    const data = await res.json();
-                    if (data && data.errors) setErrors(data.errors);
-                });
+        const data = await dispatch(createJournal(newJournal));
+        if (data.errors) {
+            setErrors(data.errors);
+        } else {
+            history.push(`/${user.username}/journals`)
+        }
 
       };
-
 
 
         return (

@@ -42,11 +42,13 @@ export const createJournal = (newJournal) => async (dispatch) => {
     body: JSON.stringify(newJournal),
   });
 
-  if (response.ok) {
-    const newJournal = await response.json();
-    dispatch(addOneJournal(newJournal));
-    return newJournal;
+  const data = await response.json();
+
+  if (!data.errors) {
+    dispatch(addOneJournal(data));
   }
+
+  return data;
 };
 
 
