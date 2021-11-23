@@ -4,22 +4,24 @@
 	position: fixed;
 	display: flex;
 	flex-direction: column;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background-color: #111;
+	background-color: rgb(22, 22, 22);
 	color: white;
-	padding-top: 16px;
-	padding-left: 10px;
+	padding-top: 20px;
+	padding-left: 15px;
 }
 
-#side-bar-link {
-	padding: 8px;
+.side-bar-link {
+	padding: 10px;
 }
+
+.side-bar-link i {
+	margin-right: 10px;
+}
+
 .sidebar a {
 	color: white;
+	margin-top: 20px;
 }
-
 
 .sidebar h1 {
 	font-size: 28px;
@@ -27,6 +29,7 @@
 
 .sidebar h1 i {
 	padding: 5px;
+	margin-right: 5px;
 }
 
 
@@ -34,6 +37,10 @@
 	color: goldenrod;
     padding: 10px;
     cursor: pointer;
+}
+
+#create-new-entry i {
+	margin-right: 5px;
 }
 
 #footer-container{
@@ -48,6 +55,20 @@
     cursor: pointer;
 }
 
-#side-bar-active:hover{
+.side-bar-link:hover{
     color:goldenrod;
+}
+
+.log-out-div {
+	font-size: 24px;
+    border-radius: 20px;
+    cursor: pointer;
+	background-color: goldenrod;
+	color: black;
+	margin: 50px auto;
+	padding:10px;
+}
+
+.log-out-div:hover {
+    background-color: gold;
 }

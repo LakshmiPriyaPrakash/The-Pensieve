@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateEntry } from "../../store/entries";
 import { useHistory, useParams } from 'react-router-dom';
@@ -12,9 +12,18 @@ function EditEntry() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [title, setTitle] = useState(entry.entry_title);
-    const [content, setContent] = useState(entry.content);
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
     const [errors, setErrors] = useState([]);
+
+
+    useEffect(() => {
+        if(entry) {
+            setTitle(entry.entry_title);
+            setContent(entry.content);
+        }
+    }, [entry]);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();

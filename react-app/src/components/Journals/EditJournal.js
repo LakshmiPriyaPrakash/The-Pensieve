@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateJournal } from "../../store/journals";
 import { useHistory, useParams } from 'react-router-dom';
@@ -12,8 +12,14 @@ function EditJournal() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [name, setName] = useState(journal.journal_name);
+    const [name, setName] = useState("");
     const [errors, setErrors] = useState([]);
+
+    useEffect(() => {
+        if(journal) {
+            setName(journal.journal_name);
+        }
+    }, [journal]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,7 +41,6 @@ function EditJournal() {
                 });
 
       };
-
 
 
         return (

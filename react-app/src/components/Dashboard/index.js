@@ -18,7 +18,7 @@ const Dashboard = () => {
         return (
             <div className="dashboard-content">
                 <div id="dashboard-info">
-                    <h2>{`Welcome back,  ${user.first_name}`}</h2>
+                    <p>{`Welcome back,  ${user.first_name}`}</p>
                 </div>
                 <div id="dashboard-entries">
                     <div id="entry-dash-info">
