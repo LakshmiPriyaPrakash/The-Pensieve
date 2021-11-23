@@ -66,6 +66,25 @@
     justify-content: space-between;
 }
 
+.j-name i {
+    padding-right: 5px;
+    padding-bottom: 20px;
+}
+
+.j-name:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.e-j-dropdown {
+    padding: 5px;
+}
+
+.e-j-dropdown:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
 #story-dets {
     display: flex;
     flex-direction: column;
