@@ -39,13 +39,13 @@ function CreateJournal() {
             <>
                 <div className="story-form-container">
                         <form className="story-form" onSubmit={handleSubmit}>
-                        <h2 className="ws-title">New Journal</h2>
+                        <h2 className="j-title">New Journal</h2>
                         <ul className="ws-errors">
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                         </ul>
                         <div className="ws-form-field">
                                 <input
-                                className="sf-input"
+                                className="j-input"
                                 id="name"
                                 type="text"
                                 value={name}
@@ -55,7 +55,7 @@ function CreateJournal() {
                                 required
                                 />
                         </div>
-                        <button className="ws-button" type="submit">Create</button>
+                        <button className="j-button" type="submit">Create</button>
                         </form>
                 </div>
             </>
