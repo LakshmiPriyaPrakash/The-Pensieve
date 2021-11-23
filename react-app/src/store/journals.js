@@ -59,11 +59,13 @@ export const updateJournal = (updateJournal) => async (dispatch) => {
     body: JSON.stringify(updateJournal),
   });
 
-  if (response.ok) {
-    const updatedJournal = await response.json();
-    dispatch(updateOneJournal(updatedJournal));
-    return updatedJournal;
+  const data = await response.json();
+
+  if (!data.errors) {
+    dispatch(updateOneJournal(data));
   }
+
+  return data;
 };
 
 
