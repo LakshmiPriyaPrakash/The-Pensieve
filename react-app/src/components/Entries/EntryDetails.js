@@ -50,7 +50,7 @@ function EntryDetails() {
     }, [changedJournalId]);
 
 
-    if(entry) {
+    if(entry && journal) {
         return (
             <>
                 <div id="story-comments">
