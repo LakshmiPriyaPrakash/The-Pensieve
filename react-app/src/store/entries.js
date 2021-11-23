@@ -42,11 +42,13 @@ export const createEntry = (newEntry) => async (dispatch) => {
     body: JSON.stringify(newEntry),
   });
 
-  if (response.ok) {
-    const newEntry = await response.json();
-    dispatch(addOneEntry(newEntry));
-    return newEntry;
+  const data = await response.json();
+
+  if (!data.errors) {
+    dispatch(addOneEntry(data));
   }
+
+  return data;
 };
 
 
@@ -57,11 +59,13 @@ export const updateEntry = (updateEntry) => async (dispatch) => {
     body: JSON.stringify(updateEntry),
   });
 
-  if (response.ok) {
-    const updatedEntry = await response.json();
-    dispatch(updateOneEntry(updatedEntry));
-    return updatedEntry;
+  const data = await response.json();
+
+  if (!data.errors) {
+    dispatch(updateOneEntry(data));
   }
+
+  return data;
 };
 
 
