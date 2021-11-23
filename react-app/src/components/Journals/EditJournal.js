@@ -47,7 +47,7 @@ function EditJournal() {
             <>
                 <div className="story-form-container">
                         <form className="story-form" onSubmit={handleSubmit}>
-                        <h2 className="ws-title">Edit Journal</h2>
+                        <h2 className="j-title">Edit Journal</h2>
                         <ul className="ws-errors">
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                         </ul>
@@ -62,7 +62,7 @@ function EditJournal() {
                                 required
                                 />
                         </div>
-                        <button className="ws-button" type="submit">Update</button>
+                        <button className="j-button" type="submit">Update</button>
                         </form>
                 </div>
             </>

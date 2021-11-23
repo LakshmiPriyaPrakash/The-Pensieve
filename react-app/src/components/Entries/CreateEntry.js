@@ -70,7 +70,7 @@ function WriteEntry() {
                                 onChange={(e) => setContent(e.target.value)}
                                 />
                         </div>
-                        <button className="ws-button" type="submit">Submit</button>
+                        <button className="e-button" type="submit">Submit</button>
                         </form>
                 </div>
             </>

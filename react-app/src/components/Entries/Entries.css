@@ -177,24 +177,27 @@
 
 }
 
-.ws-button {
+.e-button {
     margin: 30px;
     background-color: transparent;
     border-radius: 30px;
     width: 20%;
     height: 40px;
-    border-color:rgb(0, 183, 255);
+    border-color:goldenrod;
     margin-left: 40%;
     cursor: pointer;
 }
 
+.e-button:hover {
+    font-weight: bold;
+}
 
 .edit-del-btn{
     margin: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    color: rgb(24, 113, 216);
+    color: rgb(201, 146, 7);
     text-decoration: underline;
 }
 
