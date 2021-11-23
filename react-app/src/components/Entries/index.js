@@ -18,7 +18,7 @@ function UserEntries() {
                     <ul>
                         {entriesArr.map(entry => {
                             return(
-                                <li key={entry.id} className="feed-list">
+                                <li key={entry.id} className="e-list">
                                     <div className="story-container">
                                         <div className="story-details">
                                             <NavLink className="story-link" to={`/entries/${entry.id}`}>

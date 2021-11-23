@@ -39,8 +39,16 @@
     color: lightslategray
 }
 
-.feed-list {
+.e-list {
     padding: 30px;
+}
+
+.e-list:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+#s-dets {
+    display: flex;
 }
 
 #feed-img {
