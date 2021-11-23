@@ -51,17 +51,18 @@ const Dashboard = () => {
                                         className="fas fa-sticky-note fa-4x"
                                         style={{ color: "#B8860B", marginTop: -20 }}
                                     ></i>
-                                    <h3>{`Entries (${entriesArr.length})`}</h3>
+                                    <h3>Entries ({entriesArr.length})</h3>
                                 </div>
                             ) : (
                                 <div id="entry-card-link" onClick={() => history.push("/entry/new")}>
                                     <i
                                         className="fas fa-plus-square fa-4x"
+                                        id="new-entry-hover"
                                         style={{ color: "##B8860B", marginTop: -20 }}
                                     ></i>
                                     <h2
                                         style={{ textAlign: "center", fontSize: 20 }}
-                                    >{`Create new Entry`}</h2>
+                                    >Create new Entry</h2>
                                 </div>
                             )}
                         </div>
