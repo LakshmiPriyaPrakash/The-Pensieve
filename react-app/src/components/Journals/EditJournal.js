@@ -33,12 +33,12 @@ function EditJournal() {
         };
 
 
-        return dispatch(updateJournal(editedJournal))
-                .then((updatedJournal)=> history.push(`/journals/${updatedJournal.id}`))
-                .catch(async (res) => {
-                    const data = await res.json();
-                    if (data && data.errors) setErrors(data.errors);
-                });
+        const data = await dispatch(updateJournal(editedJournal));
+        if (data.errors) {
+            setErrors(data.errors);
+        } else {
+            history.push(`/journals/${data.id}`)
+        }
 
       };
 

@@ -31,15 +31,13 @@ function WriteEntry() {
         };
 
 
-        return dispatch(createEntry(newEntry))
-                .then((createdEntry)=> history.push(`/entries/${createdEntry.id}`))
-                .catch(async (res) => {
-                    const data = await res.json();
-                    if (data && data.errors) setErrors(data.errors);
-                });
-
+        const data = await dispatch(createEntry(newEntry));
+        if (data.errors) {
+            setErrors(data.errors);
+        } else {
+            history.push(`/entries/${data.id}`)
+        }
       };
-
 
 
         return (

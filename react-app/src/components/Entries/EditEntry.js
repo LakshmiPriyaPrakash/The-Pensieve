@@ -41,15 +41,14 @@ function EditEntry() {
         };
 
 
-        return dispatch(updateEntry(editedEntry))
-                .then((updatedEntry)=> history.push(`/entries/${updatedEntry.id}`))
-                .catch(async (res) => {
-                    const data = await res.json();
-                    if (data && data.errors) setErrors(data.errors);
-                });
+        const data = await dispatch(updateEntry(editedEntry));
+        if (data.errors) {
+            setErrors(data.errors);
+        } else {
+            history.push(`/entries/${data.id}`)
+        }
 
       };
-
 
 
         return (

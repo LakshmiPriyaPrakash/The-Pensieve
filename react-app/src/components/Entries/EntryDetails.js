@@ -14,7 +14,7 @@ function EntryDetails() {
     const journalsArr = Object.values(journals);
     const [showList, setShowList] = useState(false);
     const [changedJournalId, setChangedJournalId] = useState(0);
-    const [errors, setErrors] = useState([]);
+
 
     let journal;
     if(entry) {
@@ -41,10 +41,6 @@ function EntryDetails() {
 
             return dispatch(updateEntry(editedEntry))
                     .then((updatedEntry)=> history.push(`/entries/${updatedEntry.id}`))
-                    .catch(async (res) => {
-                        const data = await res.json();
-                        if (data && data.errors) setErrors(data.errors);
-                    });
         }
 
     }, [changedJournalId]);
@@ -75,22 +71,24 @@ function EntryDetails() {
                                 </ul>
                             </div>
                         }
-                        <h2 className="story-elements">{entry.entry_title}</h2>
+                        <div id="s-dets">
+                            <h2 className="story-elements">{entry.entry_title}</h2>
+                            <div id="e-d-btn-ctn">
+                                <NavLink to={`/edit/entry/${entry.id}`}>
+                                <button className="edit-del-btn" type="submit"><i className="far fa-edit"></i></button>
+                                </NavLink>
+                                <button className="edit-del-btn" type="submit"
+                                    onClick={() => {
+                                        dispatch(deleteEntry(entry.id))
+                                            .then(()=> history.push(`/${user.username}/entries`))
+                                    }
+                                }>
+                                        <i className="far fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </div>
                         <p className="story-elements story-body">{entry.content}</p>
                     </div>
-                    <div id="e-d-btn-ctn">
-                        <NavLink to={`/edit/entry/${entry.id}`}>
-                            <button className="edit-del-btn" type="submit"><i className="far fa-edit"></i></button>
-                        </NavLink>
-                            <button className="edit-del-btn" type="submit"
-                                onClick={() => {
-                                    dispatch(deleteEntry(entry.id))
-                                        .then(()=> history.push(`/${user.username}/entries`))
-                                }
-                            }>
-                                    <i className="far fa-trash-alt"></i>
-                            </button>
-                        </div>
                 </div>
             </>
         )

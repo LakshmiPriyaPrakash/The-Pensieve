@@ -36,6 +36,15 @@
     padding: 30px;
 }
 
+#j-dets {
+    display: flex;
+}
+
+.je-list {
+    padding: 15px;
+    margin-left: 20px;
+}
+
 #feed-img {
     height: 200px;
     width: 250px;
@@ -83,6 +92,10 @@
     margin-left: 250px;
 }
 
+.j-title {
+    margin-top: 80px;
+}
+
 .story-form {
     display: flex;
     justify-content: center;
@@ -111,6 +124,14 @@
     padding: 10px;
     margin-top: 10px;
 
+}
+
+.j-input {
+    height: 50px;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
 }
 
 .sf-content {
@@ -145,6 +166,21 @@
     cursor: pointer;
 }
 
+.j-button {
+    margin: 30px;
+    background-color: transparent;
+    border-radius: 30px;
+    width: 50%;
+    height: 40px;
+    border-color:goldenrod;
+    margin-left: 25%;
+    cursor: pointer;
+}
+
+.j-button:hover {
+    font-weight: bold;
+}
+
 
 .edit-del-btn{
     margin: 10px;
@@ -157,4 +193,8 @@
 
 #e-d-btn-ctn {
     display: flex;
+}
+
+#e-d-btn-ctn a {
+    padding-top: 8px;
 }

@@ -42,11 +42,13 @@ export const createJournal = (newJournal) => async (dispatch) => {
     body: JSON.stringify(newJournal),
   });
 
-  if (response.ok) {
-    const newJournal = await response.json();
-    dispatch(addOneJournal(newJournal));
-    return newJournal;
+  const data = await response.json();
+
+  if (!data.errors) {
+    dispatch(addOneJournal(data));
   }
+
+  return data;
 };
 
 
@@ -57,11 +59,13 @@ export const updateJournal = (updateJournal) => async (dispatch) => {
     body: JSON.stringify(updateJournal),
   });
 
-  if (response.ok) {
-    const updatedJournal = await response.json();
-    dispatch(updateOneJournal(updatedJournal));
-    return updatedJournal;
+  const data = await response.json();
+
+  if (!data.errors) {
+    dispatch(updateOneJournal(data));
   }
+
+  return data;
 };
 
 
