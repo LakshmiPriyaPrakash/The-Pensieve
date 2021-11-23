@@ -1,6 +1,7 @@
 import { Redirect } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import './SplashPage.css'
+import TopNavBar from '../TopNavBar';
 
 
 const SplashPage = () => {
@@ -11,7 +12,9 @@ const SplashPage = () => {
       }
 
     return (
-        <h1>Splash page</h1>
+        <div id="splash-cnt">
+            <TopNavBar />
+        </div>
     );
 
 };

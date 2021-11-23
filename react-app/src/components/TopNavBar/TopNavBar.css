@@ -15,12 +15,8 @@ a {
 .nav-bar {
     display: flex;
     justify-content: space-between;
-    background-color: white;
     width: 100vw;
-    padding: 10px 10% 0px 10%;
-    margin-bottom: 5%;
-    border-bottom: 1px solid black;
-
+    padding: 10px 10% 0px 5%;
 }
 
 .nav-bar p {
@@ -28,6 +24,8 @@ a {
     margin-left: 20px;
     font-size: 45px;
     font-family: 'Merienda', cursive;
+    color: white;
+    text-shadow: 2px 2px 2px rgb(222, 227, 228);
 }
 
 #logo {
@@ -51,17 +49,21 @@ a {
     font-size: 24px;
     padding: 5px 20px 5px 20px;
     border-radius: 20px;
+    background-color: goldenrod;
     cursor: pointer;
 }
 
 #login:hover {
-    background-color: goldenrod;
+    background-color: gold;
+    font-weight: bold;
 }
 
 #signup:hover {
-    background-color: goldenrod;
+    background-color: gold;
+    font-weight: bold;
 }
 
 #demo:hover {
-    background-color: goldenrod;
+    background-color: gold;
+    font-weight: bold;
 }

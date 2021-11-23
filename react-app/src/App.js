@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
-import TopNavBar from './components/TopNavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import { getEntries } from './store/entries';
@@ -51,7 +50,6 @@ function App() {
       }
       <Switch>
         <Route path='/' exact={true}>
-          {!user && <TopNavBar />}
           {!user && <SplashPage /> }
           {user && <Dashboard />}
         </Route>
