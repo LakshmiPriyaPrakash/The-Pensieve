@@ -21,6 +21,13 @@ def get_journals(user_id):
     return {journal.id: journal.to_dict() for journal in journals}
 
 
+@journal_routes.route('/<int:user_id>/default')
+def get_default_journal(user_id):
+    journals = Journal.query.filter_by(user_id=user_id).order_by(Journal.created_at)
+    default_journal = journals.first()
+    return {default_journal.id: default_journal.to_dict()}
+
+
 @journal_routes.route('/', methods=["POST"])
 def create_journal():
     form = JournalForm()

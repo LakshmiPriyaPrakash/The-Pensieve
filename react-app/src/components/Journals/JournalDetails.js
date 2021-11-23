@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { useHistory, useParams, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteJournal } from "../../store/journals";
@@ -11,7 +12,19 @@ function JournalDetails() {
     const journal = useSelector(state => state.journals[journalId]);
     const entries = useSelector(state => state.entries);
     const entriesArr = Object.values(entries);
-    const journalEntries = entriesArr.filter(entry => entry.journal_id === Number(journalId))
+    const journalEntries = entriesArr.filter(entry => entry.journal_id === Number(journalId));
+    const [defaultJournal, setDefaultJournal] = useState({});
+
+    useEffect(() => {
+
+        (async () => {
+            const response = await fetch(`/api/journals/${user.id}/default`);
+            const defaultJ = await response.json();
+            setDefaultJournal(Object.values(defaultJ)[0].id);
+        })();
+
+    }, []);
+
 
 
     if(journal && journalEntries) {
@@ -21,19 +34,21 @@ function JournalDetails() {
                     <div id="story-dets">
                         <div id="j-dets">
                             <h2 className="story-elements">{journal.journal_name} Entries </h2>
-                            <div id="e-d-btn-ctn">
-                                <NavLink to={`/edit/journal/${journal.id}`}>
-                                    <button className="edit-del-btn" type="submit"><i className="far fa-edit" /></button>
-                                </NavLink>
-                                <button className="edit-del-btn" type="submit"
-                                        onClick={() => {
-                                            dispatch(deleteJournal(journal.id))
-                                                .then(()=> history.push(`/${user.username}/journals`))
-                                        }
-                                    }>
-                                            <i className="far fa-trash-alt"></i>
-                                    </button>
-                            </div>
+                            {(journal.id != defaultJournal) &&
+                                <div id="e-d-btn-ctn">
+                                    <NavLink to={`/edit/journal/${journal.id}`}>
+                                        <button className="edit-del-btn" type="submit"><i className="far fa-edit" /></button>
+                                    </NavLink>
+                                    <button className="edit-del-btn" type="submit"
+                                            onClick={() => {
+                                                dispatch(deleteJournal(journal.id))
+                                                    .then(()=> history.push(`/${user.username}/journals`))
+                                            }
+                                        }>
+                                                <i className="far fa-trash-alt"></i>
+                                        </button>
+                                </div>
+                            }
                         </div>
                         <ul>
                             {journalEntries.map(entry => {

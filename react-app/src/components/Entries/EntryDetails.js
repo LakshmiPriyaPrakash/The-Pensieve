@@ -14,7 +14,7 @@ function EntryDetails() {
     const journalsArr = Object.values(journals);
     const [showList, setShowList] = useState(false);
     const [changedJournalId, setChangedJournalId] = useState(0);
-    const [errors, setErrors] = useState([]);
+
 
     let journal;
     if(entry) {
@@ -41,10 +41,6 @@ function EntryDetails() {
 
             return dispatch(updateEntry(editedEntry))
                     .then((updatedEntry)=> history.push(`/entries/${updatedEntry.id}`))
-                    .catch(async (res) => {
-                        const data = await res.json();
-                        if (data && data.errors) setErrors(data.errors);
-                    });
         }
 
     }, [changedJournalId]);
