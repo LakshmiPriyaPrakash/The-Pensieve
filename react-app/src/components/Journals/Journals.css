@@ -36,6 +36,15 @@
     padding: 30px;
 }
 
+#j-dets {
+    display: flex;
+}
+
+.je-list {
+    padding: 15px;
+    margin-left: 20px;
+}
+
 #feed-img {
     height: 200px;
     width: 250px;
@@ -157,4 +166,8 @@
 
 #e-d-btn-ctn {
     display: flex;
+}
+
+#e-d-btn-ctn a {
+    padding-top: 8px;
 }
