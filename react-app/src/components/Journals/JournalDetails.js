@@ -23,7 +23,7 @@ function JournalDetails() {
             setDefaultJournal(Object.values(defaultJ)[0].id);
         })();
 
-    }, []);
+    }, [user.id]);
 
 
 
@@ -34,7 +34,7 @@ function JournalDetails() {
                     <div id="story-dets">
                         <div id="j-dets">
                             <h2 className="story-elements">{journal.journal_name} Entries </h2>
-                            {(journal.id != defaultJournal) &&
+                            {(journal.id !== defaultJournal) &&
                                 <div id="e-d-btn-ctn">
                                     <NavLink to={`/edit/journal/${journal.id}`}>
                                         <button className="edit-del-btn" type="submit"><i className="far fa-edit" /></button>

@@ -51,7 +51,7 @@ function EntryDetails() {
             <>
                 <div id="story-comments">
                     <div id="story-dets">
-                        <div onClick={()=> setShowList(!showList)}>
+                        <div onClick={()=> setShowList(!showList)} className="j-name" >
                             <i className="fas fa-book" ></i>
                             {journal.journal_name}
                         </div>
@@ -63,6 +63,7 @@ function EntryDetails() {
                                             <li key={journal.id} onClick={() =>
                                                     setChangedJournalId(journal.id)
                                                 }
+                                                className="e-j-dropdown"
                                             >
                                                 {journal.journal_name}
                                             </li>

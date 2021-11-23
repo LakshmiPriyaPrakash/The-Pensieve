@@ -143,7 +143,6 @@ const SignUpForm = () => {
               name='repeat_password'
               onChange={updateRepeatPassword}
               value={repeatPassword}
-              required={true}
               placeholder='Repeat Password'
               required
             ></input>
