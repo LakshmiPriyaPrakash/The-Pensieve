@@ -49,8 +49,8 @@ function EntryDetails() {
     if(entry && journal) {
         return (
             <>
-                <div id="story-comments">
-                    <div id="story-dets">
+                <div id="en-dets-cnt">
+                    <div id="en-dets">
                         <div onClick={()=> setShowList(!showList)} className="j-name" >
                             <i className="fas fa-book" ></i>
                             {journal.journal_name}
@@ -88,7 +88,7 @@ function EntryDetails() {
                                 </button>
                             </div>
                         </div>
-                        <p className="story-elements story-body">{entry.content}</p>
+                        <p className="entry-content">{entry.content}</p>
                     </div>
                 </div>
             </>
