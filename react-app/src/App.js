@@ -18,6 +18,7 @@ import EditJournal from './components/Journals/EditJournal';
 import SideNavBar from './components/SideNavBar';
 import Dashboard from './components/Dashboard';
 import SplashPage from './components/SplashPage';
+import Search from './components/Search';
 
 
 
@@ -85,6 +86,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/edit/journal/:journalId' exact={true} >
           <EditJournal />
+        </ProtectedRoute>
+        <ProtectedRoute path='/search/:searchTerm' exact={true} >
+          <Search />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
