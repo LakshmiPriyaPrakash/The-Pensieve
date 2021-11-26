@@ -1,12 +1,22 @@
-import { NavLink,  Link } from "react-router-dom";
+import { NavLink, Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 import { logout } from '../../store/session';
 import './SideNavBar.css'
+
 
 
 function SideNavBar() {
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch()
+	const history = useHistory();
+
+	const [searchTerm, setSearchTerm] = useState("");
+
+    const handle = () => {
+		console.log(searchTerm)
+		history.push(`/search/${searchTerm}`)
+	};
 
 	const onLogout = async (e) => {
 		await dispatch(logout());
@@ -19,6 +29,18 @@ function SideNavBar() {
 				<i className="fas fa-user-circle"/>
 				{user.username}
 			</h1>
+
+			<div className="search-cont">
+				<i className="fas fa-search" />
+				<input
+					className="search-input"
+					type="text"
+					placeholder="Search"
+					value={searchTerm}
+					onChange={(e) => setSearchTerm(e.target.value)}
+					onKeyPress={(e) => e.key === 'Enter' && handle()}
+				/>
+        	</div>
 
 			<NavLink to="/entry/new" id="create-new-entry">
 				<i className="fas fa-pen" />
