@@ -2,6 +2,7 @@ import { NavLink,  Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from '../../store/session';
 import './SideNavBar.css'
+import Search from "../Search";
 
 
 function SideNavBar() {
@@ -19,6 +20,8 @@ function SideNavBar() {
 				<i className="fas fa-user-circle"/>
 				{user.username}
 			</h1>
+
+			<Search />
 
 			<NavLink to="/entry/new" id="create-new-entry">
 				<i className="fas fa-pen" />
