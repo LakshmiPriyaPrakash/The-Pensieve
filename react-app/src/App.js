@@ -25,6 +25,7 @@ import Search from './components/Search';
 function App() {
   const user = useSelector(state => state.session.user);
   const [loaded, setLoaded] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,7 +48,9 @@ function App() {
   return (
     <BrowserRouter>
       {user &&
-        <SideNavBar />
+        <SideNavBar
+          setSearchTerm={setSearchTerm}
+        />
       }
       <Switch>
         <Route path='/' exact={true}>
@@ -87,8 +90,8 @@ function App() {
         <ProtectedRoute path='/edit/journal/:journalId' exact={true} >
           <EditJournal />
         </ProtectedRoute>
-        <ProtectedRoute path='/search/:searchTerm' exact={true} >
-          <Search />
+        <ProtectedRoute path='/search' exact={true} >
+          <Search searchTerm={searchTerm}/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
