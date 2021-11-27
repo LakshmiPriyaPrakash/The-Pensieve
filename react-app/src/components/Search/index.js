@@ -1,11 +1,8 @@
 
-import { useParams } from "react-router-dom";
 import './Search.css';
 
 
-const Search = () => {
-
-    const { searchTerm } = useParams();
+const Search = ({searchTerm}) => {
 
     return (
         <div className="search-res">

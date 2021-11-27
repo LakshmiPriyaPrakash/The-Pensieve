@@ -1,21 +1,20 @@
+import React, { useState } from 'react';
 import { NavLink, Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
 import { logout } from '../../store/session';
 import './SideNavBar.css'
 
 
 
-function SideNavBar() {
+function SideNavBar({setSearchTerm}) {
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch()
 	const history = useHistory();
+	const [search, setSearch] = useState("");
 
-	const [searchTerm, setSearchTerm] = useState("");
-
-    const handle = () => {
-		console.log(searchTerm)
-		history.push(`/search/${searchTerm}`)
+    const onSearch = () => {
+		setSearchTerm(search)
+		history.push(`/search`)
 	};
 
 	const onLogout = async (e) => {
@@ -36,9 +35,9 @@ function SideNavBar() {
 					className="search-input"
 					type="text"
 					placeholder="Search"
-					value={searchTerm}
-					onChange={(e) => setSearchTerm(e.target.value)}
-					onKeyPress={(e) => e.key === 'Enter' && handle()}
+					value={search}
+					onChange={(e) => setSearch(e.target.value)}
+					onKeyPress={(e) => e.key === 'Enter' && onSearch()}
 				/>
         	</div>
 
