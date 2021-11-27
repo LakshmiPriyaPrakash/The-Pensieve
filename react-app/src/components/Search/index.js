@@ -40,30 +40,49 @@ const Search = ({searchTerm}) => {
         if(foundEntries.length || foundJournals.length) {
 
             return (
-                <div className="search-res">
-                    {foundEntries.map((entry) => {
-						return (
-							<NavLink exact to={`/entries/${entry.id}`} key={entry.id}>
-								<i className="far fa-sticky-note" />
-                                {entry.entry_title}
-							</NavLink>
-						);
-					})}
-                    {foundJournals.map((journal) => {
-						return (
-							<NavLink exact to={`/journals/${journal.id}`} key={journal.id}>
-                                <i className="fas fa-book" />
-								{journal.journal_name}
-							</NavLink>
-						);
-					})}
+                <div className="search-res-cnt">
+                    <div className="search-res-lst">
+                        <p>Search results for "{searchTerm}"</p>
+                        {foundEntries.length !== 0 &&
+                            <h2>Entries</h2>
+                        }
+                        {foundEntries.map((entry) => {
+                            return (
+                                <NavLink
+                                    exact to={`/entries/${entry.id}`}
+                                    key={entry.id}
+                                    className="search-lst"
+                                >
+                                    <i className="far fa-sticky-note" />
+                                    {entry.entry_title}
+                                </NavLink>
+                            );
+                        })}
+                        {foundJournals.length !== 0 &&
+                            <h2>Journals</h2>
+                        }
+                        {foundJournals.map((journal) => {
+                            return (
+                                <NavLink
+                                    exact to={`/journals/${journal.id}`}
+                                    key={journal.id}
+                                    className="search-lst"
+                                >
+                                    <i className="fas fa-book" />
+                                    {journal.journal_name}
+                                </NavLink>
+                            );
+                        })}
+                    </div>
                 </div>
             );
         } else {
 
             return (
-                <div className="search-res">
-                    Sorry, no results found.
+                <div className="search-res-cnt">
+                    <div className="search-res-lst">
+                        <p>Sorry, no results found.</p>
+                    </div>
                 </div>
             );
         }
