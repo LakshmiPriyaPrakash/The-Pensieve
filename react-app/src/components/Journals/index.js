@@ -19,7 +19,7 @@ function UserJournals() {
         const journalsArr = Object.values(journals);
 
             return (
-                <div className="adjust">
+                <div className="jour-cntr">
                     <h2 className="rec-title">User journals</h2>
                     <ul>
                         {journalsArr.map(journal => {
