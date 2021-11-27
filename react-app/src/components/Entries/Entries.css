@@ -1,14 +1,20 @@
-.adjust {
+.entries-cntr {
+    background-image: url("../utils/entries-list-frame.png");
+    background-size: contain;
+    margin-left: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color:  rgb(235, 233, 233);
+    background-color: black;
 }
 
 .rec-title {
     margin-top: 40px;
-    margin-left: 250px;
+    margin-right: 200px;
     margin-bottom: 70px;
+    text-decoration: underline;
 }
 
 .story-container {
@@ -44,7 +50,8 @@
 }
 
 .e-list:hover {
-    background-color: rgb(235, 235, 235);
+    background-color:rgb(61, 61, 59);
+    border-radius: 20px;
 }
 
 #s-dets {
@@ -64,7 +71,7 @@
 
 .entry-link {
     text-decoration: none;
-    color: black;
+    color: rgb(235, 233, 233);
 }
 
 .entry-link p {

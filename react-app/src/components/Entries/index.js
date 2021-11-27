@@ -19,8 +19,8 @@ function UserEntries() {
         const entriesArr = Object.values(entries).reverse();;
 
             return (
-                <div className="adjust">
-                    <h2 className="rec-title">User entries</h2>
+                <div className="entries-cntr">
+                    <h2 className="rec-title">Entries</h2>
                     <ul>
                         {entriesArr.map(entry => {
                             return(

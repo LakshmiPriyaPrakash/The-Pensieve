@@ -1,3 +1,10 @@
+.jour-cntr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .rec-title {
     margin-top: 40px;
     margin-left: 250px;
