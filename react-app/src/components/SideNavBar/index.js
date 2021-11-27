@@ -14,6 +14,7 @@ function SideNavBar({setSearchTerm}) {
 
     const onSearch = () => {
 		setSearchTerm(search)
+		setSearch("")
 		history.push(`/search`)
 	};
 
