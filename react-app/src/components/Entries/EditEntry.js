@@ -53,15 +53,15 @@ function EditEntry() {
 
         return (
             <>
-                <div className="story-form-container">
+                <div className="entry-form-cntr">
                         <form className="story-form" onSubmit={handleSubmit}>
-                        <h2 className="ws-title">Your thoughts...</h2>
+                        <h2 className="e-title">Your thoughts...</h2>
                         <ul className="ws-errors">
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                         </ul>
                         <div className="ws-form-field">
                                 <input
-                                className="sf-input"
+                                className="e-input"
                                 id="title"
                                 type="text"
                                 value={title}
@@ -71,7 +71,7 @@ function EditEntry() {
                         </div>
                         <div className="ws-form-field">
                                 <textarea
-                                className="sf-content"
+                                className="e-content"
                                 id="content"
                                 rows="15"
                                 cols="70"
