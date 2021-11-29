@@ -31,14 +31,6 @@
 
 }
 
-.subtitle {
-    color: gray;
-    padding-top: 10px;
-}
-
-.user-name {
-    font-size: small;
-}
 
 .date-written {
     font-size: small;
@@ -59,10 +51,6 @@
 
 }
 
-#feed-img {
-    height: 200px;
-    width: 250px;
-}
 
 .story-link {
     text-decoration: none;
