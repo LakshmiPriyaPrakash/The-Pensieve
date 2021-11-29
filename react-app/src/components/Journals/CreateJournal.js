@@ -36,8 +36,9 @@ function CreateJournal() {
 
         return (
             <>
-                <div className="story-form-container">
-                        <form className="story-form" onSubmit={handleSubmit}>
+                <div className="jour-form-cntr">
+                    <div className="jour-form-wr">
+                        <form className="jour-form" onSubmit={handleSubmit}>
                         <h2 className="j-title">New Journal</h2>
                         <ul className="ws-errors">
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -56,6 +57,7 @@ function CreateJournal() {
                         </div>
                         <button className="j-button" type="submit">Create</button>
                         </form>
+                    </div>
                 </div>
             </>
         );

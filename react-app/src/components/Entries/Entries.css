@@ -31,14 +31,6 @@
 
 }
 
-.subtitle {
-    color: gray;
-    padding-top: 10px;
-}
-
-.user-name {
-    font-size: small;
-}
 
 .date-written {
     font-size: small;
@@ -59,10 +51,6 @@
 
 }
 
-#feed-img {
-    height: 200px;
-    width: 250px;
-}
 
 .story-link {
     text-decoration: none;
@@ -146,16 +134,20 @@
     display: none;  /* Safari and Chrome */
 }
 
-.story-form-container {
+.entry-form-cntr {
+    background-image: url("../utils/create-edit-entry2.jpg");
+    background-size: 100% 100%;
+    margin-left: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    height: 100vh;
 }
 
-.ws-title {
+.e-title {
     margin-top: 30px;
     margin-left: 250px;
+    color: rgba(235, 229, 229, 0.938);
 }
 
 .story-form {
@@ -179,7 +171,7 @@
 }
 
 
-.sf-input {
+.e-input {
     height: 50px;
     border-width: 1px;
     border-radius: 5px;
@@ -188,21 +180,21 @@
 
 }
 
-.sf-content {
+.e-content {
     border-width: 1px;
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
 }
 
-.sf-input:focus {
+.e-input:focus {
     outline: none;
     box-shadow: 0 0 5px 5px rgb(215, 231, 250);
     transition: all 0.20s ease-in-out;
 
 }
 
-.sf-content:focus {
+.e-content:focus {
     outline: none;
     box-shadow: 0 0 5px 5px rgb(215, 231, 250);
     transition: all 0.20s ease-in-out;
@@ -218,10 +210,14 @@
     border-color:goldenrod;
     margin-left: 40%;
     cursor: pointer;
+    color: rgba(235, 229, 229, 0.938);
 }
 
 .e-button:hover {
     font-weight: bold;
+    border: none;
+    background-color: goldenrod;
+    color: black;
 }
 
 .edit-del-btn{

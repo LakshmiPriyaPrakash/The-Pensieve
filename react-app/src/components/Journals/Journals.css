@@ -1,46 +1,60 @@
 .jour-cntr {
+    background-image: url("../utils/entries-list-frame.png");
+    background-size: cover;
+    margin-left: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color:  rgb(235, 233, 233);
+    background-color: black;
 }
 
-.rec-title {
+
+.jour-title {
     margin-top: 40px;
-    margin-left: 250px;
     margin-bottom: 70px;
+    color:  rgb(235, 233, 233);
+    text-decoration: underline;
 }
 
-.story-container {
+.jour-container {
     display: flex;
+    color:  rgb(235, 233, 233);
 }
 
-.story-details {
+.jour-details {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: left;
     margin-right: 20px;
     width: 600px;
-
+    color:  rgb(235, 233, 233);
 }
 
-.subtitle {
-    color: gray;
-    padding-top: 10px;
+
+.jour-list {
+    padding: 30px;
+    color:  rgb(235, 233, 233);
 }
 
-.user-name {
-    font-size: small;
+.jour-link {
+    text-decoration: none;
+    color: rgb(235, 233, 233);
+}
+
+.jour-link h2:hover {
+    color: goldenrod;
+}
+
+.jour-link h3:hover {
+    color: goldenrod;
 }
 
 .date-written {
     font-size: small;
     color: lightslategray
-}
-
-.feed-list {
-    padding: 30px;
 }
 
 #j-dets {
@@ -52,46 +66,51 @@
     margin-left: 20px;
 }
 
-#feed-img {
-    height: 200px;
-    width: 250px;
-}
-
-.story-link {
-    text-decoration: none;
-    color: black;
-}
-
-#story-comments {
+#j-dets-cntr {
+    background-image: url("../utils/journals-frame.jpg");
+    background-size: contain;
+    margin-left: 300px;
     display: flex;
     justify-content: space-between;
+    height: 100vh;
+    background-color: black
 }
 
-#story-dets {
+#j-dets-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: left;
     width: 700px;
     margin-left: 500px;
-    margin-top: 50px;
+    margin-top: 10%;
 }
 
-.story-body {
-    line-height: 1.6;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.story-elements {
+.j-dets-title {
     padding: 10px;
     white-space: pre-wrap;
+    color: rgb(235, 233, 233);
 }
 
-.story-form-container {
+.j-e-list {
+    height: 70%;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.j-e-list::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+.jour-form-cntr {
+
+    margin-left: 300px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
 }
 
 .ws-title {
@@ -101,14 +120,28 @@
 
 .j-title {
     margin-top: 80px;
+    color: rgb(235, 233, 233);;
 }
 
-.story-form {
+.jour-form-wr {
+    background-image: url("../utils/create-edit-journal.jpg");
+    background-size: 100% 100%;
+    height: 70%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.jour-form {
     display: flex;
     justify-content: center;
     align-items: left;
     flex-direction: column;
 }
+
 
 .ws-errors {
     color: rgb(255, 73, 73);
@@ -141,36 +174,12 @@
     margin-top: 10px;
 }
 
-.sf-content {
-    border-width: 1px;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-}
 
 .sf-input:focus {
     outline: none;
     box-shadow: 0 0 5px 5px rgb(215, 231, 250);
     transition: all 0.20s ease-in-out;
 
-}
-
-.sf-content:focus {
-    outline: none;
-    box-shadow: 0 0 5px 5px rgb(215, 231, 250);
-    transition: all 0.20s ease-in-out;
-
-}
-
-.ws-button {
-    margin: 30px;
-    background-color: transparent;
-    border-radius: 30px;
-    width: 20%;
-    height: 40px;
-    border-color:goldenrod;
-    margin-left: 40%;
-    cursor: pointer;
 }
 
 .j-button {
@@ -182,10 +191,16 @@
     border-color:goldenrod;
     margin-left: 25%;
     cursor: pointer;
+    color: rgb(235, 233, 233);
+
 }
 
 .j-button:hover {
     font-weight: bold;
+    background-color: goldenrod;
+    color: black;
+    border:none;
+
 }
 
 
