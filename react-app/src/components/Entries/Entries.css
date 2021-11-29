@@ -258,3 +258,35 @@
 #e-d-btn-ctn {
     display: flex;
 }
+
+#jour-dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgb(46, 46, 46);
+    top: 24%;
+    border-radius: 10px;
+    height: 300px;
+    padding: 10px;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#jour-dropdown::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+.select-jour {
+    color: rgba(235, 229, 229, 0.938);
+    list-style-type: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 200ms ease-in-out;
+}
+
+.select-jour:hover {
+    background-color: whitesmoke;
+    color: black;
+}

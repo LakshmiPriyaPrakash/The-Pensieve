@@ -21,6 +21,23 @@ function EntryDetails() {
         journal = journalsArr.filter(journal => journal.id === entry.journal_id)[0]
     }
 
+    const openList = () => {
+        if (showList) return;
+        setShowList(true);
+      };
+
+    useEffect(() => {
+        if (!showList) return;
+
+        const closeList = () => {
+          setShowList(false);
+        };
+
+        document.addEventListener('click', closeList);
+
+        return () => document.removeEventListener("click", closeList);
+    }, [showList]);
+
     useEffect(() => {
         if(changedJournalId !== 0) {
             setShowList(false);
@@ -56,26 +73,24 @@ function EntryDetails() {
             <>
                 <div id="en-dets-cnt">
                     <div id="en-dets">
-                        <div onClick={()=> setShowList(!showList)} className="j-name" >
+                        <div onClick={openList} className="j-name" >
                             <i className="fas fa-book" ></i>
                             {journal.journal_name}
                         </div>
                         {showList &&
-                            <div>
-                                <ul>
+                                <ul id="jour-dropdown">
                                     {journalsArr.map(journal => {
                                         return(
                                             <li key={journal.id} onClick={() =>
                                                     setChangedJournalId(journal.id)
                                                 }
-                                                className="e-j-dropdown"
+                                                className="e-j-dropdown select-jour"
                                             >
                                                 {journal.journal_name}
                                             </li>
                                         )
                                     })}
                                 </ul>
-                            </div>
                         }
                         <div id="s-dets">
                             <h2 className="story-elements">{entry.entry_title}</h2>
