@@ -30,18 +30,19 @@
     display: none;  /* Safari and Chrome */
 }
 
-.story-container {
+.ent-container {
     display: flex;
+    height: 300px;
 }
 
-.story-details {
+.ent-details {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: left;
-    margin-right: 20px;
+    margin: 20px;
     width: 600px;
-
+    overflow:hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -121,7 +122,7 @@
 
 }
 
-.story-body {
+.ent-body {
     line-height: 1.6;
     font-family: 'Montserrat', sans-serif;
 }

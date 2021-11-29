@@ -25,11 +25,11 @@ function UserEntries() {
                         {entriesArr.map(entry => {
                             return(
                                 <li key={entry.id} className="e-list">
-                                    <div className="story-container">
-                                        <div className="story-details">
+                                    <div className="ent-container">
+                                        <div className="ent-details">
                                             <NavLink className="entry-link" to={`/entries/${entry.id}`}>
                                                 <h2>{entry.entry_title}</h2>
-                                                <p className="story-body">{entry.content}</p>
+                                                <p className="ent-body">{entry.content}</p>
                                             </NavLink>
                                         </div>
                                     </div>
