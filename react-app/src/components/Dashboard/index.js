@@ -13,6 +13,7 @@ const Dashboard = () => {
         const entriesArr = Object.values(entries).reverse();
         const recentEntries = entriesArr.slice(0, 4);
         const journalsArr = Object.values(journals).reverse();
+        const recentJournals = journalsArr.slice(0, 4);
 
 
         return (
@@ -29,7 +30,7 @@ const Dashboard = () => {
                         ></i>
                     </div>
                     <div id="recent-entries">
-                        <div id="box">
+                        <div id="container">
                             {recentEntries.map((entry) => {
                                 return (
                                     <div
@@ -60,14 +61,14 @@ const Dashboard = () => {
                 </div>
                 <div id="dashboard-journals">
                     <div id="entry-dash-info">
-                        <span>Your Journals</span>
+                        <span>Recent Journals</span>
                         <i
                             className="fas fa-plus-square fa-2x add-entry"
                             onClick={() => history.push("/journal/new")}
                         ></i>
                     </div>
                     <div id="show-dash-journals">
-                        {journalsArr.map((journal) => {
+                        {recentJournals.map((journal) => {
                             return (
                                 <div id="journal-card" key={journal.id}>
                                     <div onClick={() => history.push(`/journals/${journal.id}`)}>
