@@ -47,6 +47,11 @@ function EntryDetails() {
 
 
     if(entry && journal) {
+
+        let dateWritten = new Date(entry.created);
+        let options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric'};
+        let localDateWritten = dateWritten.toLocaleString('default', options);
+
         return (
             <>
                 <div id="en-dets-cnt">
@@ -88,6 +93,7 @@ function EntryDetails() {
                                 </button>
                             </div>
                         </div>
+                        <h5>Written on: {localDateWritten}</h5>
                         <p className="entry-content">{entry.content}</p>
                     </div>
                 </div>
