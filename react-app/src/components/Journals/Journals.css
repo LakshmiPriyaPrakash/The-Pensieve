@@ -1,6 +1,6 @@
 .jour-cntr {
-    background-image: url("../utils/journals-frame.jpg");
-    background-size: contain;
+    background-image: url("../utils/entries-list-frame.png");
+    background-size: cover;
     margin-left: 300px;
     display: flex;
     flex-direction: column;
@@ -8,21 +8,11 @@
     align-items: center;
     color:  rgb(235, 233, 233);
     background-color: black;
-    height: 100vh;
 }
 
-.jour-wrapper {
-    height: 50%;
-    overflow: scroll;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-}
-
-.jour-wrapper::-webkit-scrollbar {
-    display: none;  /* Safari and Chrome */
-}
 
 .jour-title {
+    margin-top: 40px;
     margin-bottom: 70px;
     color:  rgb(235, 233, 233);
     text-decoration: underline;
@@ -41,8 +31,8 @@
     margin-right: 20px;
     width: 600px;
     color:  rgb(235, 233, 233);
-
 }
+
 
 .jour-list {
     padding: 30px;
@@ -52,6 +42,14 @@
 .jour-link {
     text-decoration: none;
     color: rgb(235, 233, 233);
+}
+
+.jour-link h2:hover {
+    color: goldenrod;
+}
+
+.jour-link h3:hover {
+    color: goldenrod;
 }
 
 .date-written {
@@ -68,24 +66,40 @@
     margin-left: 20px;
 }
 
-#story-comments {
+#j-dets-cntr {
+    background-image: url("../utils/journals-frame.jpg");
+    background-size: contain;
+    margin-left: 300px;
     display: flex;
     justify-content: space-between;
+    height: 100vh;
+    background-color: black
 }
 
-#story-dets {
+#j-dets-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: left;
     width: 700px;
     margin-left: 500px;
-    margin-top: 50px;
+    margin-top: 10%;
 }
 
-.story-elements {
+.j-dets-title {
     padding: 10px;
     white-space: pre-wrap;
+    color: rgb(235, 233, 233);
+}
+
+.j-e-list {
+    height: 70%;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.j-e-list::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 .story-form-container {

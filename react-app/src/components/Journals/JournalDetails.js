@@ -30,10 +30,10 @@ function JournalDetails() {
     if(journal && journalEntries) {
         return (
             <>
-                <div id="story-comments">
-                    <div id="story-dets">
+                <div id="j-dets-cntr">
+                    <div id="j-dets-wrapper">
                         <div id="j-dets">
-                            <h2 className="story-elements">{journal.journal_name} Entries </h2>
+                            <h2 className="j-dets-title">{journal.journal_name} Entries </h2>
                             {(journal.id !== defaultJournal) &&
                                 <div id="e-d-btn-ctn">
                                     <NavLink to={`/edit/journal/${journal.id}`}>
@@ -50,13 +50,13 @@ function JournalDetails() {
                                 </div>
                             }
                         </div>
-                        <ul>
+                        <ul className="j-e-list">
                             {journalEntries.map(entry => {
                                 return(
                                     <li key={entry.id} className="je-list">
                                         <div className="story-container">
                                             <div className="story-details">
-                                                <NavLink className="story-link" to={`/entries/${entry.id}`}>
+                                                <NavLink className="jour-link" to={`/entries/${entry.id}`}>
                                                     <h3>{entry.entry_title}</h3>
                                                 </NavLink>
                                             </div>
