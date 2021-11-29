@@ -102,11 +102,15 @@
     display: none;  /* Safari and Chrome */
 }
 
-.story-form-container {
+.jour-form-cntr {
+
+    margin-left: 300px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
 }
 
 .ws-title {
@@ -116,14 +120,28 @@
 
 .j-title {
     margin-top: 80px;
+    color: rgb(235, 233, 233);;
 }
 
-.story-form {
+.jour-form-wr {
+    background-image: url("../utils/create-edit-journal.jpg");
+    background-size: 100% 100%;
+    height: 70%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.jour-form {
     display: flex;
     justify-content: center;
     align-items: left;
     flex-direction: column;
 }
+
 
 .ws-errors {
     color: rgb(255, 73, 73);
@@ -173,10 +191,16 @@
     border-color:goldenrod;
     margin-left: 25%;
     cursor: pointer;
+    color: rgb(235, 233, 233);
+
 }
 
 .j-button:hover {
     font-weight: bold;
+    background-color: goldenrod;
+    color: black;
+    border:none;
+
 }
 
 
