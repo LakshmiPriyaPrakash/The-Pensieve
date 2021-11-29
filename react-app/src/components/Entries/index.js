@@ -16,20 +16,26 @@ function UserEntries() {
 
     if(entries) {
 
-        const entriesArr = Object.values(entries).reverse();;
+        const entriesArr = Object.values(entries).reverse();
 
             return (
                 <div className="entries-cntr">
                     <h2 className="rec-title">Entries</h2>
-                    <ul>
+                    <ul className="ent-wr">
                         {entriesArr.map(entry => {
+
+                            let dateWritten = new Date(entry.created);
+                            let options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'};
+                            let localDateWritten = dateWritten.toLocaleString('default', options);
+
                             return(
                                 <li key={entry.id} className="e-list">
-                                    <div className="story-container">
-                                        <div className="story-details">
+                                    <div className="ent-container">
+                                        <div className="ent-details">
                                             <NavLink className="entry-link" to={`/entries/${entry.id}`}>
                                                 <h2>{entry.entry_title}</h2>
-                                                <p className="story-body">{entry.content}</p>
+                                                <h5 className="date-written">{localDateWritten}</h5>
+                                                <p className="ent-body">{entry.content}</p>
                                             </NavLink>
                                         </div>
                                     </div>
