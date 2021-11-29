@@ -1,46 +1,62 @@
 .jour-cntr {
+    background-image: url("../utils/journals-frame.jpg");
+    background-size: contain;
+    margin-left: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color:  rgb(235, 233, 233);
+    background-color: black;
+    height: 100vh;
 }
 
-.rec-title {
-    margin-top: 40px;
-    margin-left: 250px;
+.jour-wrapper {
+    height: 50%;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.jour-wrapper::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+.jour-title {
     margin-bottom: 70px;
+    color:  rgb(235, 233, 233);
+    text-decoration: underline;
 }
 
-.story-container {
+.jour-container {
     display: flex;
+    color:  rgb(235, 233, 233);
 }
 
-.story-details {
+.jour-details {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: left;
     margin-right: 20px;
     width: 600px;
+    color:  rgb(235, 233, 233);
 
 }
 
-.subtitle {
-    color: gray;
-    padding-top: 10px;
+.jour-list {
+    padding: 30px;
+    color:  rgb(235, 233, 233);
 }
 
-.user-name {
-    font-size: small;
+.jour-link {
+    text-decoration: none;
+    color: rgb(235, 233, 233);
 }
 
 .date-written {
     font-size: small;
     color: lightslategray
-}
-
-.feed-list {
-    padding: 30px;
 }
 
 #j-dets {
@@ -50,16 +66,6 @@
 .je-list {
     padding: 15px;
     margin-left: 20px;
-}
-
-#feed-img {
-    height: 200px;
-    width: 250px;
-}
-
-.story-link {
-    text-decoration: none;
-    color: black;
 }
 
 #story-comments {
@@ -75,11 +81,6 @@
     width: 700px;
     margin-left: 500px;
     margin-top: 50px;
-}
-
-.story-body {
-    line-height: 1.6;
-    font-family: 'Montserrat', sans-serif;
 }
 
 .story-elements {
@@ -141,36 +142,12 @@
     margin-top: 10px;
 }
 
-.sf-content {
-    border-width: 1px;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-}
 
 .sf-input:focus {
     outline: none;
     box-shadow: 0 0 5px 5px rgb(215, 231, 250);
     transition: all 0.20s ease-in-out;
 
-}
-
-.sf-content:focus {
-    outline: none;
-    box-shadow: 0 0 5px 5px rgb(215, 231, 250);
-    transition: all 0.20s ease-in-out;
-
-}
-
-.ws-button {
-    margin: 30px;
-    background-color: transparent;
-    border-radius: 30px;
-    width: 20%;
-    height: 40px;
-    border-color:goldenrod;
-    margin-left: 40%;
-    cursor: pointer;
 }
 
 .j-button {

@@ -20,14 +20,14 @@ function UserJournals() {
 
             return (
                 <div className="jour-cntr">
-                    <h2 className="rec-title">User journals</h2>
-                    <ul>
+                    <h2 className="jour-title">Journals</h2>
+                    <ul className="jour-wrapper">
                         {journalsArr.map(journal => {
                             return(
-                                <li key={journal.id} className="feed-list">
-                                    <div className="story-container">
-                                        <div className="story-details">
-                                            <NavLink className="story-link" to={`/journals/${journal.id}`}>
+                                <li key={journal.id} className="jour-list">
+                                    <div className="jour-container">
+                                        <div className="jour-details">
+                                            <NavLink className="jour-link" to={`/journals/${journal.id}`}>
                                                 <h2>{journal.journal_name} ({journal.entries.length})</h2>
                                             </NavLink>
                                         </div>
