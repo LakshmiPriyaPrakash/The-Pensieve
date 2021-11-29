@@ -21,7 +21,7 @@ function UserEntries() {
             return (
                 <div className="entries-cntr">
                     <h2 className="rec-title">Entries</h2>
-                    <ul>
+                    <ul className="ent-wr">
                         {entriesArr.map(entry => {
                             return(
                                 <li key={entry.id} className="e-list">

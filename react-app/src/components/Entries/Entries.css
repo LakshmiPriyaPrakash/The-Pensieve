@@ -1,6 +1,6 @@
 .entries-cntr {
     background-image: url("../utils/entries-list-frame.png");
-    background-size: contain;
+    background-size: cover;
     margin-left: 300px;
     display: flex;
     flex-direction: column;
@@ -8,6 +8,7 @@
     align-items: center;
     color:  rgb(235, 233, 233);
     background-color: black;
+    height: 100vh;
 }
 
 .rec-title {
@@ -15,6 +16,18 @@
     margin-right: 200px;
     margin-bottom: 70px;
     text-decoration: underline;
+}
+
+.ent-wr {
+    height: 70%;
+    width: fit-content;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.ent-wr::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 .story-container {

@@ -1,4 +1,4 @@
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import './SplashPage.css'
 import TopNavBar from '../TopNavBar';
@@ -30,25 +30,19 @@ const SplashPage = () => {
                 <p id="sig">Lakshmi Priya Prakash</p>
             </div>
             <div id="spl-footer-cnt">
-					<Link
-						to={{ pathname: "https://www.linkedin.com/in/lakshmi-priya-prakash/" }}
+                    <a
+						href='https://www.linkedin.com/in/lakshmi-priya-prakash/'
 						target="_blank"
 					>
-						<i
-							className="fab fa-linkedin spl-footer-icon fa-2x"
+						<i className="fab fa-linkedin spl-footer-icon fa-2x" />
+					</a>
 
-						/>
-					</Link>
-
-					<Link
-						to={{ pathname: "https://github.com/LakshmiPriyaPrakash" }}
+					<a
+						href='https://github.com/LakshmiPriyaPrakash'
 						target="_blank"
 					>
-						<i
-							className="fab fa-github spl-footer-icon fa-2x"
-
-						/>
-					</Link>
+						<i className="fab fa-github spl-footer-icon fa-2x" />
+					</a>
 				</div>
         </div>
     );

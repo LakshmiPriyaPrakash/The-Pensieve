@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Link, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from '../../store/session';
 import './SideNavBar.css'
@@ -80,25 +80,19 @@ function SideNavBar({setSearchTerm}) {
 			<div id="f-wrapper">
 				<h4>Lakshmi Priya Prakash</h4>
 				<div id="footer-container">
-					<Link
-						to={{ pathname: "https://www.linkedin.com/in/lakshmi-priya-prakash/" }}
+					<a
+						href='https://www.linkedin.com/in/lakshmi-priya-prakash/'
 						target="_blank"
 					>
-						<i
-							className="fab fa-linkedin footer-icon fa-2x"
+						<i className="fab fa-linkedin footer-icon fa-2x" />
+					</a>
 
-						/>
-					</Link>
-
-					<Link
-						to={{ pathname: "https://github.com/LakshmiPriyaPrakash" }}
+					<a
+						href='https://github.com/LakshmiPriyaPrakash'
 						target="_blank"
 					>
-						<i
-							className="fab fa-github footer-icon fa-2x"
-
-						/>
-					</Link>
+						<i className="fab fa-github footer-icon fa-2x" />
+					</a>
 				</div>
 			</div>
 		</div>
