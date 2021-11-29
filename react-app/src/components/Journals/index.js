@@ -21,7 +21,7 @@ function UserJournals() {
             return (
                 <div className="jour-cntr">
                     <h2 className="jour-title">Journals</h2>
-                    <ul>
+                    <ul className="jour-wr">
                         {journalsArr.map(journal => {
                             return(
                                 <li key={journal.id} className="jour-list">

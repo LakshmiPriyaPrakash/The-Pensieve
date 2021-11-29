@@ -8,6 +8,7 @@
     align-items: center;
     color:  rgb(235, 233, 233);
     background-color: black;
+    height: 100vh;
 }
 
 
@@ -16,6 +17,19 @@
     margin-bottom: 70px;
     color:  rgb(235, 233, 233);
     text-decoration: underline;
+}
+
+.jour-wr {
+    height: 70%;
+    width: 60%;
+    margin-left: 10%;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.jour-wr::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 .jour-container {
