@@ -29,6 +29,7 @@ function UserEntries() {
                                         <div className="ent-details">
                                             <NavLink className="entry-link" to={`/entries/${entry.id}`}>
                                                 <h2>{entry.entry_title}</h2>
+                                                <h5 className="date-written">{entry.created.slice(0, 17)}</h5>
                                                 <p className="ent-body">{entry.content}</p>
                                             </NavLink>
                                         </div>
