@@ -37,9 +37,9 @@ function JournalDetails() {
                             {(journal.id !== defaultJournal) &&
                                 <div id="e-d-btn-ctn">
                                     <NavLink to={`/edit/journal/${journal.id}`}>
-                                        <button className="edit-del-btn" type="submit"><i className="far fa-edit" /></button>
+                                        <button className="j-e-d-btn" type="submit"><i className="far fa-edit" /></button>
                                     </NavLink>
-                                    <button className="edit-del-btn" type="submit"
+                                    <button className="j-e-d-btn" type="submit"
                                             onClick={() => {
                                                 dispatch(deleteJournal(journal.id))
                                                     .then(()=> history.push(`/${user.username}/journals`))
@@ -56,7 +56,8 @@ function JournalDetails() {
                                     <li key={entry.id} className="je-list">
                                         <div className="story-container">
                                             <div className="story-details">
-                                                <NavLink className="jour-link" to={`/entries/${entry.id}`}>
+                                                <NavLink className="jour-ent-link" to={`/entries/${entry.id}`}>
+                                                    <i className="far fa-sticky-note" />
                                                     <h3>{entry.entry_title}</h3>
                                                 </NavLink>
                                             </div>
