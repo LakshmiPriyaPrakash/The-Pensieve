@@ -93,7 +93,7 @@ function EntryDetails() {
                                 </ul>
                         }
                         <div id="s-dets">
-                            <h2 className="story-elements">{entry.entry_title}</h2>
+                            <h2 className="ent-title">{entry.entry_title}</h2>
                             <div id="e-d-btn-ctn">
                                 <NavLink to={`/edit/entry/${entry.id}`}>
                                 <button className="edit-del-btn" type="submit"><i className="far fa-edit"></i></button>
