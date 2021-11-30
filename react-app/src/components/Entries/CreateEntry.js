@@ -68,7 +68,12 @@ function WriteEntry() {
                                 onChange={(e) => setSelectedJournal(e.target.value)}
                             >
                                     {journalsArr.map((journal) => (
-                                        <option value={journal.id}>{journal.journal_name}</option>
+                                        <option
+                                            value={journal.id}
+                                            key={journal.id}
+                                        >
+                                            {journal.journal_name}
+                                        </option>
                                     ))}
                             </select>
                         </div>
