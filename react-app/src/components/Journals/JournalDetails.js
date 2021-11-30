@@ -37,9 +37,9 @@ function JournalDetails() {
                             {(journal.id !== defaultJournal) &&
                                 <div id="e-d-btn-ctn">
                                     <NavLink to={`/edit/journal/${journal.id}`}>
-                                        <button className="edit-del-btn" type="submit"><i className="far fa-edit" /></button>
+                                        <button className="j-e-d-btn" type="submit"><i className="far fa-edit" /></button>
                                     </NavLink>
-                                    <button className="edit-del-btn" type="submit"
+                                    <button className="j-e-d-btn" type="submit"
                                             onClick={() => {
                                                 dispatch(deleteJournal(journal.id))
                                                     .then(()=> history.push(`/${user.username}/journals`))

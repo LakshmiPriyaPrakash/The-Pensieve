@@ -9,11 +9,14 @@ function EditEntry() {
     const user = useSelector(state => state.session.user);
     const { entryId } = useParams();
     const entry = useSelector(state => state.entries[entryId]);
+    const journals = useSelector(state => state.journals);
+    const journalsArr = Object.values(journals);
     const dispatch = useDispatch();
     const history = useHistory();
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const [selectedJournal, setSelectedJournal] = useState("");
     const [errors, setErrors] = useState([]);
 
 
@@ -21,6 +24,7 @@ function EditEntry() {
         if(entry) {
             setTitle(entry.entry_title);
             setContent(entry.content);
+            setSelectedJournal(entry.journal_id);
         }
     }, [entry]);
 
@@ -29,7 +33,7 @@ function EditEntry() {
         e.preventDefault();
 
         const user_id = user.id;
-        const journal_id = entry.journal_id;
+        const journal_id = selectedJournal;
         const entry_title = title || "Untitled"
 
         const editedEntry = {
@@ -54,7 +58,7 @@ function EditEntry() {
         return (
             <>
                 <div className="entry-form-cntr">
-                        <form className="story-form" onSubmit={handleSubmit}>
+                    <form className="story-form" onSubmit={handleSubmit}>
                         <h2 className="e-title">Your thoughts...</h2>
                         <ul className="ws-errors">
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -69,6 +73,18 @@ function EditEntry() {
                                 autoFocus={true}
                                 />
                         </div>
+                        <div className="jour-sel-field">
+                            Choose a journal:
+                            <select
+                                className="jour-sel"
+                                value={selectedJournal}
+                                onChange={(e) => setSelectedJournal(e.target.value)}
+                            >
+                                    {journalsArr.map((journal) => (
+                                        <option value={journal.id}>{journal.journal_name}</option>
+                                    ))}
+                            </select>
+                        </div>
                         <div className="ws-form-field">
                                 <textarea
                                 className="e-content"
@@ -80,7 +96,7 @@ function EditEntry() {
                                 />
                         </div>
                         <button className="e-button" type="submit">Update</button>
-                        </form>
+                    </form>
                 </div>
             </>
         );
