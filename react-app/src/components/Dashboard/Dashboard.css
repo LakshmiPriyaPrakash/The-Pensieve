@@ -5,6 +5,7 @@
     background-color:black;
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
 #dashboard-info{
@@ -23,7 +24,7 @@
     flex-direction: column;
     width: 52vw;
     height: 360px;
-    margin: 100px;
+    margin: 60px 100px;
     background-color: white;
     border-radius: 10px;
     border: transparent;
@@ -42,7 +43,6 @@
 }
 
 #recent-entries{
-    flex:1;
     display: flex;
     margin-top: 10px;
     height: 300px;
@@ -133,7 +133,7 @@
     width: 30vw;
     height: 360px;
     margin-left: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
     background-color: white;
     border-radius: 10px;
     border: transparent;

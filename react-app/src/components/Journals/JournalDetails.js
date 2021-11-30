@@ -56,7 +56,8 @@ function JournalDetails() {
                                     <li key={entry.id} className="je-list">
                                         <div className="story-container">
                                             <div className="story-details">
-                                                <NavLink className="jour-link" to={`/entries/${entry.id}`}>
+                                                <NavLink className="jour-ent-link" to={`/entries/${entry.id}`}>
+                                                    <i className="far fa-sticky-note" />
                                                     <h3>{entry.entry_title}</h3>
                                                 </NavLink>
                                             </div>

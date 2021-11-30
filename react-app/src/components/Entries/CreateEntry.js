@@ -11,10 +11,11 @@ function WriteEntry() {
     const history = useHistory();
     const journals = useSelector(state => state.journals);
     const journalsArr = Object.values(journals);
-    const journal = journalsArr[0];
+    const defaultJournal = journalsArr[0];
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const [selectedJournal, setSelectedJournal] = useState("");
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
@@ -25,7 +26,7 @@ function WriteEntry() {
 
         const newEntry = {
             user_id,
-            journal_id: journal.id,
+            journal_id: selectedJournal || defaultJournal.id,
             entry_title,
             content
         };
@@ -37,8 +38,9 @@ function WriteEntry() {
         } else {
             history.push(`/entries/${data.id}`)
         }
-      };
+    };
 
+    if(defaultJournal) {
 
         return (
             <>
@@ -59,6 +61,17 @@ function WriteEntry() {
                                 autoFocus={true}
                                 />
                         </div>
+                        <div className="jour-sel-field">
+                            Choose a journal:
+                            <select
+                                className="jour-sel"
+                                onChange={(e) => setSelectedJournal(e.target.value)}
+                            >
+                                    {journalsArr.map((journal) => (
+                                        <option value={journal.id}>{journal.journal_name}</option>
+                                    ))}
+                            </select>
+                        </div>
                         <div className="ws-form-field">
                                 <textarea
                                 className="e-content"
@@ -75,6 +88,9 @@ function WriteEntry() {
                 </div>
             </>
         );
+    } else {
+        return null;
+    }
 }
 
 

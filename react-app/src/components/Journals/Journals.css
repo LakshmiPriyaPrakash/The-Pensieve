@@ -62,10 +62,6 @@
     color: goldenrod;
 }
 
-.jour-link h3:hover {
-    color: goldenrod;
-}
-
 .date-written {
     font-size: small;
     color: lightslategray
@@ -100,9 +96,10 @@
 }
 
 .j-dets-title {
-    padding: 10px;
+    padding: 20px;
     white-space: pre-wrap;
     color: rgb(235, 233, 233);
+    text-decoration: underline;
 }
 
 .j-e-list {
@@ -114,6 +111,21 @@
 
 .j-e-list::-webkit-scrollbar {
     display: none;  /* Safari and Chrome */
+}
+
+.jour-ent-link {
+    display: flex;
+    text-decoration: none;
+    color: rgb(235, 233, 233);
+}
+
+.jour-ent-link i {
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+.jour-ent-link h3:hover {
+    color: goldenrod;
 }
 
 .jour-form-cntr {

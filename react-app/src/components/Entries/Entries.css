@@ -196,6 +196,19 @@
     width: 100%;
 }
 
+.jour-sel-field {
+    margin-top: 30px;
+    width: 100%;
+    color:  rgba(235, 229, 229, 0.938);
+}
+
+.jour-sel {
+    margin-left: 20px;
+    border-radius: 5px;
+    width: 50%;
+    height: 35px;
+    background-color: rgb(248, 242, 242);
+}
 
 .e-input {
     height: 50px;
@@ -203,6 +216,7 @@
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
+    background-color: rgb(238, 238, 238);
 
 }
 
@@ -211,21 +225,23 @@
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
+    background-color: rgb(238, 238, 238);
 }
 
 .e-input:focus {
     outline: none;
-    box-shadow: 0 0 5px 5px rgb(215, 231, 250);
+    box-shadow: 0 0 4px 4px rgb(116, 112, 112);
     transition: all 0.20s ease-in-out;
 
 }
 
 .e-content:focus {
     outline: none;
-    box-shadow: 0 0 5px 5px rgb(215, 231, 250);
+    box-shadow: 0 0 4px 4px rgb(116, 112, 112);
     transition: all 0.20s ease-in-out;
 
 }
+
 
 .e-button {
     margin: 30px;
@@ -271,6 +287,7 @@
     overflow: scroll;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
+    box-shadow: 0 0 4px 4px rgb(53, 52, 52);
 }
 
 #jour-dropdown::-webkit-scrollbar {
