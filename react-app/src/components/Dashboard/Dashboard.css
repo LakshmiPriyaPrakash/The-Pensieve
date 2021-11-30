@@ -22,25 +22,22 @@
 #dashboard-entries{
     display: flex;
     flex-direction: column;
-    width: 52vw;
+    width: 62%;
     height: 360px;
     margin: 60px 100px;
-    background-color: white;
-    border-radius: 10px;
-    border: transparent;
+    background-color: transparent;
 }
 
 #entry-dash-info{
     width: 100%;
     height: fit-content;
     margin-top: 10px;
-    border-bottom: 2px solid black;
+    font-size: 25px;
+    padding: 20px;
+    color: white;
+    text-decoration: underline;
 }
 
-#entry-dash-info span{
-    font-size: 25px;
-    padding: 30px;
-}
 
 #recent-entries{
     display: flex;
@@ -57,7 +54,7 @@
     padding: 5px;
     margin: 10px;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+    background-color: white;
     transition: 0.3s all ease-in-out;
 }
 
@@ -96,7 +93,7 @@
     padding: 5px;
     margin: 10px;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+    background-color: white;
     transition: 0.3s all ease-in-out;
 }
 
@@ -111,15 +108,13 @@
 }
 
 .add-entry {
-    float: right;
-    padding-right: 20px;
+    color: goldenrod;
     padding-bottom: 5px;
-
 }
 
 .add-entry:hover{
     cursor: pointer;
-    color:goldenrod;
+    color:rgb(236, 178, 32);
 }
 
 .entry-list {
@@ -127,55 +122,100 @@
     color: rgb(180, 134, 17);
 }
 
-#dashboard-journals{
+#dashboard-jours{
     display: flex;
     flex-direction: column;
-    width: 30vw;
+    width: 62%;
     height: 360px;
-    margin-left: 100px;
-    margin-bottom: 40px;
-    background-color: white;
-    border-radius: 10px;
-    border: transparent;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+    margin: 20px 100px;
+    background-color: transparent;
 }
 
-#show-dash-journals{
+#jour-dash-info{
+    width: 100%;
+    height: fit-content;
+    margin-top: 10px;
+    font-size: 25px;
+    padding: 20px;
+    color: white;
+    text-decoration: underline;
+}
+
+#recent-jours{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
+    margin-top: 10px;
+    height: 300px;
     overflow: auto;
 }
 
-#journal-card{
+#jour-card{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     max-height: 80%;
-    width: 90%;
+    width: 175px;
     padding: 5px;
     margin: 10px;
     border-radius: 5px;
+    background-color: white;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+    transition: 0.3s all ease-in-out;
 }
 
-#journal-card:hover{
+#jour-card h2{
+    font-size: 16px;
+    max-height: 50px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    padding-left: 5px;
+}
+
+#jour-card h3{
+    font-size: 14px;
+    color: gray;
+    overflow: hidden;
+    max-height: 150px;
+    margin-top: 10px;
+}
+
+#jour-card:hover{
     cursor: pointer;
-    box-shadow: rgba(172, 127, 14, 0.808) 0px 3px 8px;
+    transform: scale(1.1);
 }
 
 
-#journal-card i {
-    display: inline;
-    padding: 8px;
-    color: rgb(180, 134, 17)
+.jour-card-link{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 80%;
+    width: 175px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: white;
+    transition: 0.3s all ease-in-out;
 }
 
-#journal-card p {
-    display: inline;
-    padding-left: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
+.jour-card-link:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.jour-card-link h3{
+    padding-top: 10px;
+    text-align: center;
+}
+
+.dash-jour-ents {
+    display: flex;
+    padding: 5px;
+}
+
+.dash-jour-ents h3 {
+    padding-left: 5px;
+}
+
+.dash-jour-ents i {
+    padding: 5px;
 }

@@ -23,11 +23,7 @@ const Dashboard = () => {
                 </div>
                 <div id="dashboard-entries">
                     <div id="entry-dash-info">
-                        <span>Recent Entries</span>
-                        <i
-                            className="fas fa-plus-square fa-2x add-entry"
-                            onClick={() => history.push("/entry/new")}
-                        ></i>
+                        Recent Entries
                     </div>
                     <div id="recent-entries">
                         <div id="container">
@@ -52,32 +48,43 @@ const Dashboard = () => {
 
                             {entriesArr.length === 0 &&
                                 <div className="entry-card-link" onClick={() => history.push("/entry/new")}>
-                                    <i className="fas fa-plus-square fa-4x add-entry" />
+                                    <i className="fas fa-plus fa-4x add-entry" />
                                     <h2>Create new Entry</h2>
                                 </div>
                             }
                         </div>
                     </div>
                 </div>
-                <div id="dashboard-journals">
-                    <div id="entry-dash-info">
-                        <span>Recent Journals</span>
-                        <i
-                            className="fas fa-plus-square fa-2x add-entry"
-                            onClick={() => history.push("/journal/new")}
-                        ></i>
+                <div id="dashboard-jours">
+                    <div id="jour-dash-info">
+                        Recent journals
                     </div>
-                    <div id="show-dash-journals">
-                        {recentJournals.map((journal) => {
-                            return (
-                                <div id="journal-card" key={journal.id}>
-                                    <div onClick={() => history.push(`/journals/${journal.id}`)}>
-                                        <i className="fas fa-book-open fa-2x" />
-                                        <p> {journal.journal_name} </p>
+                    <div id="recent-jours">
+                        <div id="container">
+                            {recentJournals.map((journal) => {
+                                return (
+                                    <div
+                                        id="jour-card"
+                                        key={journal.id}
+                                        onClick={() => history.push(`/journals/${journal.id}`)}
+                                    >
+                                        <h2>{journal.journal_name}</h2>
+                                        {journal.entries.slice(0, 3).map((entry) => {
+                                            return (
+                                                <div className="dash-jour-ents">
+                                                    <i className="far fa-sticky-note" />
+                                                    <h3>{entry.entry_title}</h3>
+                                                </div>
+                                            );
+                                        })}
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                            <div className="jour-card-link" onClick={() => history.push(`/${user.username}/journals`)}>
+                                <i className="fas fa-book fa-4x entry-list" />
+                                <h3>Journals ({journalsArr.length})</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
