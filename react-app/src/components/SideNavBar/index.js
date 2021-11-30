@@ -23,7 +23,7 @@ function SideNavBar({setSearchTerm}) {
 	  };
 
 	return (
-		<div className="sidebar">
+		<div className="sidenav">
 
 			<h1>
 				<i className="fas fa-user-circle"/>
@@ -43,31 +43,31 @@ function SideNavBar({setSearchTerm}) {
         	</div>
 
 			<NavLink to="/entry/new" id="create-new-entry">
-				<i className="fas fa-pen" />
+				<i class="fas fa-plus" />
 				Create New Entry
 			</NavLink>
 
             <NavLink to="/journal/new" id="create-new-entry">
-				<i className="fas fa-pen" />
+				<i class="fas fa-plus" />
 				Create New Journal
 			</NavLink>
 
 			<NavLink to={`/${user.username}/dashboard`} >
-				<div className="side-bar-link">
+				<div className="side-nav-link">
 					<i className="fas fa-home" />
 					Home
 				</div>
 			</NavLink>
 
 			<NavLink to={`/${user.username}/entries`} >
-				<div className="side-bar-link">
+				<div className="side-nav-link">
 					<i className="far fa-sticky-note" />
 					Entries
 				</div>
 			</NavLink>
 
             <NavLink to={`/${user.username}/journals`} >
-				<div className="side-bar-link">
+				<div className="side-nav-link">
 					<i className="fas fa-book" />
 					Journals
 				</div>
