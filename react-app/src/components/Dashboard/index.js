@@ -41,14 +41,14 @@ const Dashboard = () => {
                             })}
                             {entriesArr.length > 0 &&
                                 <div className="entry-card-link" onClick={() => history.push(`/${user.username}/entries`)}>
-                                    <i className="fas fa-sticky-note fa-4x entry-list" />
+                                    <i className="fas fa-sticky-note fa-3x entry-list" />
                                     <h3>Entries ({entriesArr.length})</h3>
                                 </div>
                             }
 
                             {entriesArr.length === 0 &&
                                 <div className="entry-card-link" onClick={() => history.push("/entry/new")}>
-                                    <i className="fas fa-plus fa-4x add-entry" />
+                                    <i className="fas fa-plus fa-3x add-entry" />
                                     <h2>Create new Entry</h2>
                                 </div>
                             }
@@ -81,7 +81,7 @@ const Dashboard = () => {
                                 );
                             })}
                             <div className="jour-card-link" onClick={() => history.push(`/${user.username}/journals`)}>
-                                <i className="fas fa-book fa-4x entry-list" />
+                                <i className="fas fa-book fa-3x entry-list" />
                                 <h3>Journals ({journalsArr.length})</h3>
                             </div>
                         </div>
