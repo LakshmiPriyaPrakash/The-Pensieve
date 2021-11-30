@@ -67,10 +67,6 @@
 
 }
 
-.story-link {
-    text-decoration: none;
-    color: black;
-}
 
 .entry-link {
     text-decoration: none;
@@ -93,7 +89,7 @@
     display: flex;
     /* justify-content: space-between; */
     height: 100vh;
-
+    background-color:black;
 }
 
 .j-name i {
@@ -139,7 +135,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.story-elements {
+.ent-title {
     padding: 10px;
     white-space: pre-wrap;
 }
@@ -168,6 +164,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color:black;
 }
 
 .e-title {
@@ -176,7 +173,7 @@
     color: rgba(235, 229, 229, 0.938);
 }
 
-.story-form {
+.entry-form {
     display: flex;
     justify-content: center;
     align-items: left;
