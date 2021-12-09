@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import ReactQuill from "react-quill";
+import QuillToolbar, { modules, formats } from "./EditorToolbar";
+import "react-quill/dist/quill.snow.css";
 import { useSelector, useDispatch } from "react-redux";
 import { createEntry } from "../../store/entries";
 import { useHistory } from 'react-router-dom';
@@ -78,15 +81,24 @@ function WriteEntry() {
                             </select>
                         </div>
                         <div className="ws-form-field">
-                                <textarea
+                            <QuillToolbar toolbarId={'t1'}/>
+                            <ReactQuill
+                            theme="snow"
+                            value={content}
+                            onChange={(e) => setContent(e.target.value)}
+                            placeholder={"Start writing..."}
+                            modules={modules('t1')}
+                            formats={formats}
+                            />
+                                {/* <textarea
                                 className="e-content"
                                 id="content"
-                                rows="15"
-                                cols="70"
+                                rows="20"
+                                cols="80"
                                 value={content}
                                 placeholder="Start writing..."
                                 onChange={(e) => setContent(e.target.value)}
-                                />
+                                /> */}
                         </div>
                         <button className="e-button" type="submit">Submit</button>
                         </form>
