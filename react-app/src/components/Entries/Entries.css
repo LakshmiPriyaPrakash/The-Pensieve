@@ -222,7 +222,14 @@
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
+    height: 500px;
     background-color: rgb(238, 238, 238);
+}
+
+.e-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    text-decoration: revert;
 }
 
 .e-input:focus {

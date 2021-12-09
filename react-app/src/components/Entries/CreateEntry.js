@@ -21,9 +21,6 @@ function WriteEntry() {
     const [selectedJournal, setSelectedJournal] = useState("");
     const [errors, setErrors] = useState([]);
 
-    const onContent = (value) => {
-        setContent(value);
-      }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -84,15 +81,16 @@ function WriteEntry() {
                                     ))}
                             </select>
                         </div>
-                        <div className="ws-form-field e-content">
-                            <QuillToolbar toolbarId={'t1'}/>
+
+                            {/* <QuillToolbar toolbarId={'t1'}/> */}
                             <ReactQuill
-                            theme="snow"
-                            value={content}
-                            onChange={onContent}
-                            placeholder={"Start writing..."}
-                            modules={modules('t1')}
-                            formats={formats}
+                                className="ws-form-field e-content"
+                                theme="snow"
+                                value={content}
+                                onChange={setContent}
+                                placeholder={"Start writing..."}
+                                modules={modules}
+                                formats={formats}
                             />
                                 {/* <textarea
                                 className="e-content"
@@ -103,7 +101,7 @@ function WriteEntry() {
                                 placeholder="Start writing..."
                                 onChange={(e) => setContent(e.target.value)}
                                 /> */}
-                        </div>
+
                         <button className="e-button" type="submit">Submit</button>
                         </form>
                 </div>
