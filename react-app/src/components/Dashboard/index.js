@@ -57,7 +57,7 @@ const Dashboard = () => {
                 </div>
                 <div id="dashboard-jours">
                     <div id="jour-dash-info">
-                        Recent journals
+                        Recent Journals
                     </div>
                     <div id="recent-jours">
                         <div id="container">
