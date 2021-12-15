@@ -49,7 +49,7 @@ function WriteEntry() {
         return (
             <>
                 <div className="entry-form-cntr">
-                        <form className="entry-form" onSubmit={handleSubmit}>
+                    <form className="entry-form" onSubmit={handleSubmit}>
                         <h2 className="e-title">Your thoughts...</h2>
                         <ul className="ws-errors">
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -103,7 +103,7 @@ function WriteEntry() {
                                 /> */}
 
                         <button className="e-button" type="submit">Submit</button>
-                        </form>
+                    </form>
                 </div>
             </>
         );

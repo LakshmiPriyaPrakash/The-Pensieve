@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     color:  rgb(235, 233, 233);
+    font-family: 'Montserrat', sans-serif;
     background-color: black;
     height: 100vh;
 }
@@ -121,6 +122,7 @@
     margin-top: 5%;
     margin-bottom: 1%;
     color: rgba(235, 229, 229, 0.938);
+    font-family: 'Montserrat', sans-serif;
 
 }
 
@@ -178,10 +180,13 @@
     justify-content: center;
     align-items: left;
     flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .ws-errors {
     color: rgb(255, 73, 73);
+    font-family: 'Montserrat', sans-serif;
+    list-style-type: none;
 }
 
 .ws-form-field {
@@ -200,6 +205,7 @@
 }
 
 .jour-sel {
+    font-family: 'Montserrat', sans-serif;
     margin-left: 20px;
     border-radius: 5px;
     width: 50%;
@@ -208,6 +214,7 @@
 }
 
 .e-input {
+    font-family: 'Montserrat', sans-serif;
     height: 50px;
     border-width: 1px;
     border-radius: 5px;
@@ -248,6 +255,7 @@
 
 
 .e-button {
+    font-family: 'Montserrat', sans-serif;
     margin: 30px;
     background-color: transparent;
     border-radius: 30px;
