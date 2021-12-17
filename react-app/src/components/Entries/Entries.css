@@ -168,7 +168,6 @@
     overflow: scroll;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
-
 }
 
 .entry-content::-webkit-scrollbar {
@@ -318,6 +317,7 @@
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
     box-shadow: 0 0 4px 4px rgb(53, 52, 52);
+    z-index: 1;
 }
 
 #jour-dropdown::-webkit-scrollbar {
