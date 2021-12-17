@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import ReactQuill from "react-quill";
 import './Dashboard.css'
 
 const Dashboard = () => {
@@ -35,7 +36,15 @@ const Dashboard = () => {
                                         onClick={() => history.push(`/entries/${entry.id}`)}
                                     >
                                         <h2>{entry.entry_title}</h2>
-                                        <h3>{entry.content}</h3>
+                                        <h3>
+                                            <ReactQuill
+                                                className="dash-ent"
+                                                value={entry.content}
+                                                readOnly={true}
+                                                theme={"bubble"}
+                                                style={{ fontSize: 8}}
+                                            />
+                                        </h3>
                                     </div>
                                 );
                             })}

@@ -77,6 +77,10 @@
     margin-top: 10px;
 }
 
+.dash-ent {
+    font-size: 12px;
+}
+
 #entry-card:hover{
     cursor: pointer;
     transform: scale(1.1);
