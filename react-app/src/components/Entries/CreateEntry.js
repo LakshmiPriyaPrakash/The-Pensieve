@@ -91,6 +91,7 @@ function WriteEntry() {
                                 placeholder={"Start writing..."}
                                 modules={modules}
                                 formats={formats}
+                                style={{minHeight: '500px', height: "500px", width:"900px"}}
                             />
                                 {/* <textarea
                                 className="e-content"

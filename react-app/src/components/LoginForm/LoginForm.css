@@ -35,7 +35,11 @@
     height: 100px;
 }
 
-.logo-name > h1, p {
+.logo-name h1 {
+    font-family: 'Merienda', cursive;
+}
+
+.logo-name p {
     font-family: 'Merienda', cursive;
 }
 

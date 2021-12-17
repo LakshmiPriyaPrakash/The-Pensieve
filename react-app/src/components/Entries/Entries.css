@@ -135,6 +135,23 @@
 .ent-body {
     line-height: 1.6;
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+.ql-editor {
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    padding: 0px;
+    white-space: pre-wrap;
+    height: 60%;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.ql-editor::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 .ent-title {
@@ -230,6 +247,7 @@
     padding: 10px;
     margin-top: 10px;
     height: 500px;
+    max-width: 900px;
     background-color: rgb(238, 238, 238);
 }
 

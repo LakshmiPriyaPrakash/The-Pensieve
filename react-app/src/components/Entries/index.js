@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import ReactQuill from "react-quill";
 import { getEntries } from '../../store/entries';
 import './Entries.css';
 
@@ -35,7 +36,12 @@ function UserEntries() {
                                             <NavLink className="entry-link" to={`/entries/${entry.id}`}>
                                                 <h2>{entry.entry_title}</h2>
                                                 <h5 className="date-written">{localDateWritten}</h5>
-                                                <p className="ent-body">{entry.content}</p>
+                                                {/* <div> { ReactHtmlParser(entry.content) } </div> */}
+                                                <ReactQuill
+                                                    value={entry.content}
+                                                    readOnly={true}
+                                                    theme={"bubble"}
+                                                />
                                             </NavLink>
                                         </div>
                                     </div>
