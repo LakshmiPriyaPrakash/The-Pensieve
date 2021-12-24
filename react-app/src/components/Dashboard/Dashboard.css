@@ -44,7 +44,13 @@
     display: flex;
     margin-top: 10px;
     height: 300px;
-    overflow: auto;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#recent-entries::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 #entry-card{
@@ -77,9 +83,6 @@
     margin-top: 10px;
 }
 
-.dash-ent {
-    font-size: 12px;
-}
 
 #entry-card:hover{
     cursor: pointer;
@@ -160,7 +163,13 @@
     display: flex;
     margin-top: 10px;
     height: 300px;
-    overflow: auto;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#recent-jours::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 #jour-card{
