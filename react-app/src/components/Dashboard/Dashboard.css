@@ -32,6 +32,7 @@
     width: 100%;
     height: fit-content;
     margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     padding: 20px;
     color: white;
@@ -43,7 +44,13 @@
     display: flex;
     margin-top: 10px;
     height: 300px;
-    overflow: auto;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#recent-entries::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 #entry-card{
@@ -59,20 +66,24 @@
 }
 
 #entry-card h2{
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     max-height: 50px;
+    white-space: nowrap;
     overflow:hidden;
     text-overflow: ellipsis;
     padding-left: 5px;
 }
 
 #entry-card h3{
+    font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     color: gray;
     overflow: hidden;
     max-height: 150px;
     margin-top: 10px;
 }
+
 
 #entry-card:hover{
     cursor: pointer;
@@ -103,9 +114,17 @@
 }
 
 .entry-card-link h2{
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     text-align: center;
 }
+
+.entry-card-link h3{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding-top: 10px;
+}
+
 
 .add-entry {
     color: goldenrod;
@@ -145,7 +164,13 @@
     display: flex;
     margin-top: 10px;
     height: 300px;
-    overflow: auto;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#recent-jours::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 #jour-card{
@@ -162,14 +187,17 @@
 }
 
 #jour-card h2{
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     max-height: 50px;
+    white-space: nowrap;
     overflow:hidden;
     text-overflow: ellipsis;
     padding-left: 5px;
 }
 
 #jour-card h3{
+    font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     color: gray;
     overflow: hidden;
@@ -205,6 +233,7 @@
 .jour-card-link h3{
     padding-top: 10px;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .dash-jour-ents {

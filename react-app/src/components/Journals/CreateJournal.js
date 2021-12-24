@@ -39,23 +39,23 @@ function CreateJournal() {
                 <div className="jour-form-cntr">
                     <div className="jour-form-wr">
                         <form className="jour-form" onSubmit={handleSubmit}>
-                        <h2 className="j-title">New Journal</h2>
-                        <ul className="ws-errors">
-                            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                        </ul>
-                        <div className="ws-form-field">
-                                <input
-                                className="j-input"
-                                id="name"
-                                type="text"
-                                value={name}
-                                placeholder="Journal name"
-                                onChange={(e) => setName(e.target.value)}
-                                autoFocus={true}
-                                required
-                                />
-                        </div>
-                        <button className="j-button" type="submit">Create</button>
+                            <h2 className="j-title">New Journal</h2>
+                            <ul className="ws-errors">
+                                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                            </ul>
+                            <div className="ws-form-field">
+                                    <input
+                                    className="j-input"
+                                    id="name"
+                                    type="text"
+                                    value={name}
+                                    placeholder="Journal name"
+                                    onChange={(e) => setName(e.target.value)}
+                                    autoFocus={true}
+                                    required
+                                    />
+                            </div>
+                            <button className="j-button" type="submit">Create</button>
                         </form>
                     </div>
                 </div>

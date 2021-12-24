@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import ReactQuill from "react-quill";
 import { deleteEntry, updateEntry } from "../../store/entries";
 import './Entries.css';
 
@@ -109,7 +110,13 @@ function EntryDetails() {
                             </div>
                         </div>
                         <h5>Written on: {localDateWritten}</h5>
-                        <p className="entry-content">{entry.content}</p>
+                        <ReactQuill
+                            className="entry-content"
+                            value={entry.content}
+                            readOnly={true}
+                            theme={"bubble"}
+                        />
+                        {/* <p className="entry-content">{entry.content}</p> */}
                     </div>
                 </div>
             </>

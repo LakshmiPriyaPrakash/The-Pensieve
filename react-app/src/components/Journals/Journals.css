@@ -9,6 +9,7 @@
     color:  rgb(235, 233, 233);
     background-color: black;
     height: 100vh;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -69,6 +70,7 @@
 
 #j-dets {
     display: flex;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .je-list {
@@ -104,6 +106,7 @@
 
 .j-e-list {
     height: 70%;
+    font-family: 'Montserrat', sans-serif;
     overflow: scroll;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
@@ -163,6 +166,7 @@
 }
 
 .jour-form {
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
     align-items: left;
@@ -172,6 +176,8 @@
 
 .ws-errors {
     color: rgb(255, 73, 73);
+    font-family: 'Montserrat', sans-serif;
+    list-style-type: none;
 }
 
 .ws-form-field {
@@ -189,6 +195,7 @@
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -202,7 +209,7 @@
     margin-left: 25%;
     cursor: pointer;
     color: rgb(235, 233, 233);
-
+    font-family: 'Montserrat', sans-serif;
 }
 
 .j-button:hover {
@@ -225,6 +232,7 @@
 
 #e-d-btn-ctn {
     display: flex;
+
 }
 
 #e-d-btn-ctn a {

@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     color:  rgb(235, 233, 233);
+    font-family: 'Montserrat', sans-serif;
     background-color: black;
     height: 100vh;
 }
@@ -121,6 +122,7 @@
     margin-top: 5%;
     margin-bottom: 1%;
     color: rgba(235, 229, 229, 0.938);
+    font-family: 'Montserrat', sans-serif;
 
 }
 
@@ -133,6 +135,23 @@
 .ent-body {
     line-height: 1.6;
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+.ql-editor {
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    padding: 0px;
+    white-space: pre-wrap;
+    height: 60%;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.ql-editor::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
 }
 
 .ent-title {
@@ -149,7 +168,6 @@
     overflow: scroll;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
-
 }
 
 .entry-content::-webkit-scrollbar {
@@ -178,10 +196,13 @@
     justify-content: center;
     align-items: left;
     flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .ws-errors {
     color: rgb(255, 73, 73);
+    font-family: 'Montserrat', sans-serif;
+    list-style-type: none;
 }
 
 .ws-form-field {
@@ -200,6 +221,7 @@
 }
 
 .jour-sel {
+    font-family: 'Montserrat', sans-serif;
     margin-left: 20px;
     border-radius: 5px;
     width: 50%;
@@ -208,6 +230,7 @@
 }
 
 .e-input {
+    font-family: 'Montserrat', sans-serif;
     height: 50px;
     border-width: 1px;
     border-radius: 5px;
@@ -222,7 +245,15 @@
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
+    height: 500px;
+    max-width: 900px;
     background-color: rgb(238, 238, 238);
+}
+
+.e-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    text-decoration: revert;
 }
 
 .e-input:focus {
@@ -241,6 +272,7 @@
 
 
 .e-button {
+    font-family: 'Montserrat', sans-serif;
     margin: 30px;
     background-color: transparent;
     border-radius: 30px;
@@ -285,6 +317,7 @@
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
     box-shadow: 0 0 4px 4px rgb(53, 52, 52);
+    z-index: 1;
 }
 
 #jour-dropdown::-webkit-scrollbar {

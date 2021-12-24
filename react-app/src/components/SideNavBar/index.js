@@ -43,12 +43,12 @@ function SideNavBar({setSearchTerm}) {
         	</div>
 
 			<NavLink to="/entry/new" id="create-new-entry">
-				<i class="fas fa-plus" />
+				<i className="fas fa-plus" />
 				Create New Entry
 			</NavLink>
 
             <NavLink to="/journal/new" id="create-new-entry">
-				<i class="fas fa-plus" />
+				<i className="fas fa-plus" />
 				Create New Journal
 			</NavLink>
 

@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import ReactQuill from "react-quill";
+import { modules, formats } from "./EditorToolbar";
+import "react-quill/dist/quill.snow.css";
 import { useSelector, useDispatch } from "react-redux";
 import { createEntry } from "../../store/entries";
 import { useHistory } from 'react-router-dom';
@@ -17,6 +20,7 @@ function WriteEntry() {
     const [content, setContent] = useState("");
     const [selectedJournal, setSelectedJournal] = useState("");
     const [errors, setErrors] = useState([]);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -45,7 +49,7 @@ function WriteEntry() {
         return (
             <>
                 <div className="entry-form-cntr">
-                        <form className="entry-form" onSubmit={handleSubmit}>
+                    <form className="entry-form" onSubmit={handleSubmit}>
                         <h2 className="e-title">Your thoughts...</h2>
                         <ul className="ws-errors">
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -77,19 +81,30 @@ function WriteEntry() {
                                     ))}
                             </select>
                         </div>
-                        <div className="ws-form-field">
-                                <textarea
+
+                            {/* <QuillToolbar toolbarId={'t1'}/> */}
+                            <ReactQuill
+                                className="ws-form-field e-content"
+                                theme="snow"
+                                value={content}
+                                onChange={setContent}
+                                placeholder={"Start writing..."}
+                                modules={modules}
+                                formats={formats}
+                                style={{minHeight: '500px', height: "500px", width:"900px"}}
+                            />
+                                {/* <textarea
                                 className="e-content"
                                 id="content"
-                                rows="15"
-                                cols="70"
+                                rows="20"
+                                cols="80"
                                 value={content}
                                 placeholder="Start writing..."
                                 onChange={(e) => setContent(e.target.value)}
-                                />
-                        </div>
+                                /> */}
+
                         <button className="e-button" type="submit">Submit</button>
-                        </form>
+                    </form>
                 </div>
             </>
         );

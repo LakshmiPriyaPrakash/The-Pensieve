@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import parse from 'html-react-parser';
 import './Dashboard.css'
 
 const Dashboard = () => {
@@ -35,7 +36,7 @@ const Dashboard = () => {
                                         onClick={() => history.push(`/entries/${entry.id}`)}
                                     >
                                         <h2>{entry.entry_title}</h2>
-                                        <h3>{entry.content}</h3>
+                                        <h3>{parse(entry.content)}</h3>
                                     </div>
                                 );
                             })}
@@ -57,7 +58,7 @@ const Dashboard = () => {
                 </div>
                 <div id="dashboard-jours">
                     <div id="jour-dash-info">
-                        Recent journals
+                        Recent Journals
                     </div>
                     <div id="recent-jours">
                         <div id="container">

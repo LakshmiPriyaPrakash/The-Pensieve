@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import ReactQuill from "react-quill";
+import { modules, formats } from "./EditorToolbar";
+import "react-quill/dist/quill.snow.css";
 import { useSelector, useDispatch } from "react-redux";
 import { updateEntry } from "../../store/entries";
 import { useHistory, useParams } from 'react-router-dom';
@@ -90,16 +93,25 @@ function EditEntry() {
                                     ))}
                             </select>
                         </div>
-                        <div className="ws-form-field">
-                                <textarea
+
+                        <ReactQuill
+                            className="ws-form-field e-content"
+                            theme="snow"
+                            value={content}
+                            onChange={setContent}
+                            modules={modules}
+                            formats={formats}
+                            style={{minHeight: '500px', height: "500px", width:"900px"}}
+                        />
+                                {/* <textarea
                                 className="e-content"
                                 id="content"
                                 rows="15"
                                 cols="70"
                                 value={content}
                                 onChange={(e) => setContent(e.target.value)}
-                                />
-                        </div>
+                                /> */}
+
                         <button className="e-button" type="submit">Update</button>
                     </form>
                 </div>
