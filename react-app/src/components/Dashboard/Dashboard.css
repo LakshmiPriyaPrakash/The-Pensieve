@@ -156,6 +156,7 @@
     margin-top: 10px;
     font-size: 25px;
     padding: 20px;
+    font-family: 'Montserrat', sans-serif;
     color: white;
     text-decoration: underline;
 }
@@ -200,7 +201,9 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     color: gray;
-    overflow: hidden;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
     max-height: 150px;
     margin-top: 10px;
 }
