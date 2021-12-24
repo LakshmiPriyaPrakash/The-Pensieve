@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
-import QuillToolbar, { modules, formats } from "./EditorToolbar";
+import { modules, formats } from "./EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useSelector, useDispatch } from "react-redux";
 import { createEntry } from "../../store/entries";
