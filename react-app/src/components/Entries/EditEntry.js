@@ -20,6 +20,8 @@ function EditEntry() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [selectedJournal, setSelectedJournal] = useState("");
+    const [saveStatus, setSaveStatus] = useState("All changes saved");
+    const [isSaved, setIsSaved] = useState(true);
     const [errors, setErrors] = useState([]);
 
 
@@ -32,36 +34,47 @@ function EditEntry() {
     }, [entry]);
 
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    useEffect(() => {
+        if(title || content || selectedJournal) {
+            setIsSaved(false)
+            setSaveStatus("Saving...")
 
-        const user_id = user.id;
-        const journal_id = selectedJournal;
-        const entry_title = title || "Untitled"
+            const autoSaveTimer = setTimeout(async () => {
 
-        const editedEntry = {
-            id: entry.id,
-            user_id,
-            journal_id,
-            entry_title,
-            content
-        };
+                    const user_id = user.id;
+                    const journal_id = selectedJournal;
+                    const entry_title = title || "Untitled"
+
+                    const editedEntry = {
+                        id: entry.id,
+                        user_id,
+                        journal_id,
+                        entry_title,
+                        content
+                    };
 
 
-        const data = await dispatch(updateEntry(editedEntry));
-        if (data.errors) {
-            setErrors(data.errors);
-        } else {
-            history.push(`/entries/${data.id}`)
+                    const data = await dispatch(updateEntry(editedEntry));
+                    if (data.errors) {
+                        setErrors(data.errors);
+                    } else {
+                        setSaveStatus("All changes saved")
+                        setIsSaved(true)
+                    }
+
+            }, 1000);
+
+            return () => clearTimeout(autoSaveTimer);
         }
 
-      };
+    }, [title, content, selectedJournal]);
+
 
 
         return (
             <>
                 <div className="entry-form-cntr">
-                    <form className="entry-form" onSubmit={handleSubmit}>
+                    <form className="entry-form">
                         <h2 className="e-title">Your thoughts...</h2>
                         <ul className="ws-errors">
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -103,16 +116,22 @@ function EditEntry() {
                             formats={formats}
                             style={{minHeight: '500px', height: "500px", width:"900px"}}
                         />
-                                {/* <textarea
-                                className="e-content"
-                                id="content"
-                                rows="15"
-                                cols="70"
-                                value={content}
-                                onChange={(e) => setContent(e.target.value)}
-                                /> */}
 
-                        <button className="e-button" type="submit">Update</button>
+                        {!isSaved &&
+                            <h4 className="save-status1">
+                                {saveStatus}
+                            </h4>
+                        }
+
+                        {isSaved &&
+                            <h4 className="save-status2"
+                                onClick={() => history.push(`/entries/${+entryId}`)}
+                            >
+                                {saveStatus}
+                                <i className="fas fa-book-open read-save" />
+                            </h4>
+                        }
+
                     </form>
                 </div>
             </>

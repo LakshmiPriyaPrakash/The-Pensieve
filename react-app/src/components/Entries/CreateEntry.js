@@ -145,6 +145,7 @@ function WriteEntry() {
                                 <i className="fas fa-book-open read-save" />
                             </h4>
                         }
+
                     </form>
                 </div>
             </>
