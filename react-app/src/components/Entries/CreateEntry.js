@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import { modules, formats } from "./EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useSelector, useDispatch } from "react-redux";
-import { createEntry } from "../../store/entries";
+import { createEntry, updateEntry } from "../../store/entries";
 import { useHistory } from 'react-router-dom';
 import './Entries.css'
 
@@ -19,37 +19,75 @@ function WriteEntry() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [selectedJournal, setSelectedJournal] = useState("");
+    const [saveStatus, setSaveStatus] = useState("Saving...");
+    const [isSaved, setIsSaved] = useState(false);
+    const [isNewEntry, setIsNewEntry] = useState(true);
+    const [newEntryId, setNewEntryId] = useState("");
     const [errors, setErrors] = useState([]);
 
+    useEffect(() => {
+        setIsSaved(false)
+        setSaveStatus("Saving...")
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+        const autoSaveTimer = setTimeout(async () => {
+            if((title || content || selectedJournal) && isNewEntry) {
+                const user_id = user.id;
+                const entry_title = title || "Untitled"
 
-        const user_id = user.id;
-        const entry_title = title || "Untitled"
+                const newEntry = {
+                    user_id,
+                    journal_id: selectedJournal || defaultJournal.id,
+                    entry_title,
+                    content
+                };
 
-        const newEntry = {
-            user_id,
-            journal_id: selectedJournal || defaultJournal.id,
-            entry_title,
-            content
-        };
+                const data = await dispatch(createEntry(newEntry));
+                if (data.errors) {
+                    setErrors(data.errors);
+                } else {
+                    setIsNewEntry(false)
+                    setNewEntryId(data.id)
+                    setSaveStatus("All changes saved")
+                    setIsSaved(true)
+                }
+            }
+
+            if((title || content || selectedJournal) && !isNewEntry) {
+                const user_id = user.id;
+                const journal_id = selectedJournal || defaultJournal.id;
+                const entry_title = title || "Untitled"
+
+                const editedEntry = {
+                    id: newEntryId,
+                    user_id,
+                    journal_id,
+                    entry_title,
+                    content
+                };
 
 
-        const data = await dispatch(createEntry(newEntry));
-        if (data.errors) {
-            setErrors(data.errors);
-        } else {
-            history.push(`/entries/${data.id}`)
-        }
-    };
+                const data = await dispatch(updateEntry(editedEntry));
+                if (data.errors) {
+                    setErrors(data.errors);
+                } else {
+                    setSaveStatus("All changes saved")
+                    setIsSaved(true)
+                }
+            }
+
+        }, 1000);
+
+        return () => clearTimeout(autoSaveTimer);
+
+    }, [title, content, selectedJournal]);
+
 
     if(defaultJournal) {
 
         return (
             <>
                 <div className="entry-form-cntr">
-                    <form className="entry-form" onSubmit={handleSubmit}>
+                    <form className="entry-form">
                         <h2 className="e-title">Your thoughts...</h2>
                         <ul className="ws-errors">
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -82,28 +120,32 @@ function WriteEntry() {
                             </select>
                         </div>
 
-                            {/* <QuillToolbar toolbarId={'t1'}/> */}
-                            <ReactQuill
-                                className="ws-form-field e-content"
-                                theme="snow"
-                                value={content}
-                                onChange={setContent}
-                                placeholder={"Start writing..."}
-                                modules={modules}
-                                formats={formats}
-                                style={{minHeight: '500px', height: "500px", width:"900px"}}
-                            />
-                                {/* <textarea
-                                className="e-content"
-                                id="content"
-                                rows="20"
-                                cols="80"
-                                value={content}
-                                placeholder="Start writing..."
-                                onChange={(e) => setContent(e.target.value)}
-                                /> */}
+                        <ReactQuill
+                            className="ws-form-field e-content"
+                            theme="snow"
+                            value={content}
+                            onChange={setContent}
+                            placeholder={"Start writing..."}
+                            modules={modules}
+                            formats={formats}
+                            style={{minHeight: '500px', height: "500px", width:"900px"}}
+                        />
 
-                        <button className="e-button" type="submit">Submit</button>
+                        {!isSaved &&
+                            <h4 className="save-status1">
+                                {saveStatus}
+                            </h4>
+                        }
+
+                        {isSaved &&
+                            <h4 className="save-status2"
+                                onClick={() => history.push(`/entries/${newEntryId}`)}
+                            >
+                                {saveStatus}
+                                <i className="fas fa-book-open read-save" />
+                            </h4>
+                        }
+
                     </form>
                 </div>
             </>
