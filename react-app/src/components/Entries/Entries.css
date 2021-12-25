@@ -270,6 +270,11 @@
 
 }
 
+.save-status {
+    margin-top: 30px;
+    margin-left: 350px;
+    color: rgba(235, 229, 229, 0.938);
+}
 
 .e-button {
     font-family: 'Montserrat', sans-serif;

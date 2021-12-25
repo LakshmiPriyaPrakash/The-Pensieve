@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import { modules, formats } from "./EditorToolbar";
 import "react-quill/dist/quill.snow.css";
 import { useSelector, useDispatch } from "react-redux";
-import { createEntry } from "../../store/entries";
+import { createEntry, updateEntry } from "../../store/entries";
 import { useHistory } from 'react-router-dom';
 import './Entries.css'
 
@@ -19,37 +19,91 @@ function WriteEntry() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [selectedJournal, setSelectedJournal] = useState("");
+    const [saveStatus, setSaveStatus] = useState("All changes saved");
+    const [isNewEntry, setIsNewEntry] = useState(true);
+    const [newEntryId, setNewEntryId] = useState("");
     const [errors, setErrors] = useState([]);
 
+    useEffect(async () => {
+        if((title || content || selectedJournal) && isNewEntry) {
+            setSaveStatus("Saving...")
+            const user_id = user.id;
+            const entry_title = title || "Untitled"
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+            const newEntry = {
+                user_id,
+                journal_id: selectedJournal || defaultJournal.id,
+                entry_title,
+                content
+            };
 
-        const user_id = user.id;
-        const entry_title = title || "Untitled"
-
-        const newEntry = {
-            user_id,
-            journal_id: selectedJournal || defaultJournal.id,
-            entry_title,
-            content
-        };
-
-
-        const data = await dispatch(createEntry(newEntry));
-        if (data.errors) {
-            setErrors(data.errors);
-        } else {
-            history.push(`/entries/${data.id}`)
+            const data = await dispatch(createEntry(newEntry));
+            if (data.errors) {
+                setErrors(data.errors);
+            } else {
+                setIsNewEntry(false)
+                setNewEntryId(data.id)
+                setSaveStatus("All changes saved")
+            }
         }
-    };
+        // else {
+
+        //     const autoSaveTimer = setTimeout(async () => {
+        //         const user_id = user.id;
+        //         const journal_id = selectedJournal;
+        //         const entry_title = title || "Untitled"
+
+        //         const editedEntry = {
+        //             id: newEntryId,
+        //             user_id,
+        //             journal_id,
+        //             entry_title,
+        //             content
+        //         };
+
+
+        //         const data = await dispatch(updateEntry(editedEntry));
+        //         if (data.errors) {
+        //             setErrors(data.errors);
+        //         } else {
+        //             history.push(`/entries/${data.id}`)
+        //         }
+
+        //     }, 1000);
+
+        //     return () => clearTimeout(autoSaveTimer);
+        // }
+    }, [title, content, selectedJournal]);
+
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     const user_id = user.id;
+    //     const entry_title = title || "Untitled"
+
+    //     const newEntry = {
+    //         user_id,
+    //         journal_id: selectedJournal || defaultJournal.id,
+    //         entry_title,
+    //         content
+    //     };
+
+
+    //     const data = await dispatch(createEntry(newEntry));
+    //     if (data.errors) {
+    //         setErrors(data.errors);
+    //     } else {
+    //         history.push(`/entries/${data.id}`)
+    //     }
+    // };
 
     if(defaultJournal) {
 
         return (
             <>
                 <div className="entry-form-cntr">
-                    <form className="entry-form" onSubmit={handleSubmit}>
+                    <form className="entry-form">
                         <h2 className="e-title">Your thoughts...</h2>
                         <ul className="ws-errors">
                             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -103,7 +157,8 @@ function WriteEntry() {
                                 onChange={(e) => setContent(e.target.value)}
                                 /> */}
 
-                        <button className="e-button" type="submit">Submit</button>
+                        {/* <button className="e-button" type="submit">Submit</button> */}
+                        <h4 className="save-status">{saveStatus}</h4>
                     </form>
                 </div>
             </>
