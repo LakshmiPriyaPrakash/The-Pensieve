@@ -270,10 +270,31 @@
 
 }
 
-.save-status {
+.save-status1 {
     margin-top: 30px;
-    margin-left: 350px;
+    margin-left: 330px;
+    padding: 5px;
+    width: fit-content;
     color: rgba(235, 229, 229, 0.938);
+}
+
+.save-status2 {
+    margin-top: 30px;
+    margin-left: 330px;
+    padding: 5px;
+    width: fit-content;
+    border-radius: 5px;
+    color: rgba(235, 229, 229, 0.938);
+}
+
+.save-status2:hover {
+    color: rgba(0, 0, 0, 0.938);
+    background-color: goldenrod;
+    cursor: pointer;
+}
+
+.read-save {
+    padding-left: 10px;
 }
 
 .e-button {

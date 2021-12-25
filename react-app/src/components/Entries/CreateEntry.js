@@ -19,12 +19,14 @@ function WriteEntry() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [selectedJournal, setSelectedJournal] = useState("");
-    const [saveStatus, setSaveStatus] = useState("All changes saved");
+    const [saveStatus, setSaveStatus] = useState("Saving...");
+    const [isSaved, setIsSaved] = useState(false);
     const [isNewEntry, setIsNewEntry] = useState(true);
     const [newEntryId, setNewEntryId] = useState("");
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
+        setIsSaved(false)
         setSaveStatus("Saving...")
 
         const autoSaveTimer = setTimeout(async () => {
@@ -46,6 +48,7 @@ function WriteEntry() {
                     setIsNewEntry(false)
                     setNewEntryId(data.id)
                     setSaveStatus("All changes saved")
+                    setIsSaved(true)
                 }
             }
 
@@ -68,6 +71,7 @@ function WriteEntry() {
                     setErrors(data.errors);
                 } else {
                     setSaveStatus("All changes saved")
+                    setIsSaved(true)
                 }
             }
 
@@ -127,7 +131,20 @@ function WriteEntry() {
                             style={{minHeight: '500px', height: "500px", width:"900px"}}
                         />
 
-                        <h4 className="save-status">{saveStatus}</h4>
+                        {!isSaved &&
+                            <h4 className="save-status1">
+                                {saveStatus}
+                            </h4>
+                        }
+
+                        {isSaved &&
+                            <h4 className="save-status2"
+                                onClick={() => history.push(`/entries/${newEntryId}`)}
+                            >
+                                {saveStatus}
+                                <i className="fas fa-book-open read-save" />
+                            </h4>
+                        }
                     </form>
                 </div>
             </>
