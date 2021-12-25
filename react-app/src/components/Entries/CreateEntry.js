@@ -24,79 +24,59 @@ function WriteEntry() {
     const [newEntryId, setNewEntryId] = useState("");
     const [errors, setErrors] = useState([]);
 
-    useEffect(async () => {
-        if((title || content || selectedJournal) && isNewEntry) {
-            setSaveStatus("Saving...")
-            const user_id = user.id;
-            const entry_title = title || "Untitled"
+    useEffect(() => {
+        setSaveStatus("Saving...")
 
-            const newEntry = {
-                user_id,
-                journal_id: selectedJournal || defaultJournal.id,
-                entry_title,
-                content
-            };
+        const autoSaveTimer = setTimeout(async () => {
+            if((title || content || selectedJournal) && isNewEntry) {
+                const user_id = user.id;
+                const entry_title = title || "Untitled"
 
-            const data = await dispatch(createEntry(newEntry));
-            if (data.errors) {
-                setErrors(data.errors);
-            } else {
-                setIsNewEntry(false)
-                setNewEntryId(data.id)
-                setSaveStatus("All changes saved")
+                const newEntry = {
+                    user_id,
+                    journal_id: selectedJournal || defaultJournal.id,
+                    entry_title,
+                    content
+                };
+
+                const data = await dispatch(createEntry(newEntry));
+                if (data.errors) {
+                    setErrors(data.errors);
+                } else {
+                    setIsNewEntry(false)
+                    setNewEntryId(data.id)
+                    setSaveStatus("All changes saved")
+                }
             }
-        }
-        // else {
 
-        //     const autoSaveTimer = setTimeout(async () => {
-        //         const user_id = user.id;
-        //         const journal_id = selectedJournal;
-        //         const entry_title = title || "Untitled"
+            if((title || content || selectedJournal) && !isNewEntry) {
+                const user_id = user.id;
+                const journal_id = selectedJournal || defaultJournal.id;
+                const entry_title = title || "Untitled"
 
-        //         const editedEntry = {
-        //             id: newEntryId,
-        //             user_id,
-        //             journal_id,
-        //             entry_title,
-        //             content
-        //         };
+                const editedEntry = {
+                    id: newEntryId,
+                    user_id,
+                    journal_id,
+                    entry_title,
+                    content
+                };
 
 
-        //         const data = await dispatch(updateEntry(editedEntry));
-        //         if (data.errors) {
-        //             setErrors(data.errors);
-        //         } else {
-        //             history.push(`/entries/${data.id}`)
-        //         }
+                const data = await dispatch(updateEntry(editedEntry));
+                if (data.errors) {
+                    setErrors(data.errors);
+                } else {
+                    setSaveStatus("All changes saved")
+                }
+            }
 
-        //     }, 1000);
+        }, 1000);
 
-        //     return () => clearTimeout(autoSaveTimer);
-        // }
+        return () => clearTimeout(autoSaveTimer);
+
     }, [title, content, selectedJournal]);
 
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     const user_id = user.id;
-    //     const entry_title = title || "Untitled"
-
-    //     const newEntry = {
-    //         user_id,
-    //         journal_id: selectedJournal || defaultJournal.id,
-    //         entry_title,
-    //         content
-    //     };
-
-
-    //     const data = await dispatch(createEntry(newEntry));
-    //     if (data.errors) {
-    //         setErrors(data.errors);
-    //     } else {
-    //         history.push(`/entries/${data.id}`)
-    //     }
-    // };
 
     if(defaultJournal) {
 
@@ -136,28 +116,17 @@ function WriteEntry() {
                             </select>
                         </div>
 
-                            {/* <QuillToolbar toolbarId={'t1'}/> */}
-                            <ReactQuill
-                                className="ws-form-field e-content"
-                                theme="snow"
-                                value={content}
-                                onChange={setContent}
-                                placeholder={"Start writing..."}
-                                modules={modules}
-                                formats={formats}
-                                style={{minHeight: '500px', height: "500px", width:"900px"}}
-                            />
-                                {/* <textarea
-                                className="e-content"
-                                id="content"
-                                rows="20"
-                                cols="80"
-                                value={content}
-                                placeholder="Start writing..."
-                                onChange={(e) => setContent(e.target.value)}
-                                /> */}
+                        <ReactQuill
+                            className="ws-form-field e-content"
+                            theme="snow"
+                            value={content}
+                            onChange={setContent}
+                            placeholder={"Start writing..."}
+                            modules={modules}
+                            formats={formats}
+                            style={{minHeight: '500px', height: "500px", width:"900px"}}
+                        />
 
-                        {/* <button className="e-button" type="submit">Submit</button> */}
                         <h4 className="save-status">{saveStatus}</h4>
                     </form>
                 </div>
