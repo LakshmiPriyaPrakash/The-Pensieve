@@ -42,7 +42,7 @@ function SideNavBar({setSearchTerm}) {
 
 	useEffect(() => {
 		if(search.length !== 0) openList();
-		if(search.length === 0) closeList();
+		if(search.length === 0 || searchList.length === 0) closeList();
 
         if(search && (entries || journals)){
 			const entriesArr = Object.values(entries);
@@ -59,9 +59,10 @@ function SideNavBar({setSearchTerm}) {
 			});
 
 			setSearchList(foundEntries.concat(foundJournals))
+
 		}
 
-    }, [search]);
+    }, [search, searchList.length]);
 
     const onSearch = () => {
 		setSearchTerm(search)
@@ -75,7 +76,7 @@ function SideNavBar({setSearchTerm}) {
 			setSearchTerm(searchTerm)
 			setSearch("")
 			history.push(`/search`)
-		}, 500);
+		}, 300);
 
 		return () => clearTimeout(searchTimer);
 	};
