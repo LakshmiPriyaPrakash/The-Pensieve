@@ -70,6 +70,17 @@ function SideNavBar({setSearchTerm}) {
 	};
 
 
+	const onSelect = (searchTerm) => {
+		const searchTimer = setTimeout(async () => {
+			setSearchTerm(searchTerm)
+			setSearch("")
+			history.push(`/search`)
+		}, 500);
+
+		return () => clearTimeout(searchTimer);
+	};
+
+
 	const onLogout = async (e) => {
 		await dispatch(logout());
 	  };
@@ -100,8 +111,10 @@ function SideNavBar({setSearchTerm}) {
                     {searchList.map(searchBlob => {
 						let searchTerm = searchBlob.entry_title || searchBlob.journal_name
                         return(
-                            <li key={searchBlob.id} onClick={() =>
+                            <li key={searchTerm} onClick={() => {
 								setSearch(searchTerm)
+								onSelect(searchTerm)
+							}
                     			}
                         		className="e-j-dropdown select-jour"
                             >
