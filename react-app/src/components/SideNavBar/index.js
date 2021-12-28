@@ -23,6 +23,10 @@ function SideNavBar({setSearchTerm}) {
         setShowList(true);
     };
 
+	const closeList = () => {
+		setShowList(false);
+	};
+
     useEffect(() => {
         if (!showList) return;
 
@@ -37,6 +41,9 @@ function SideNavBar({setSearchTerm}) {
 
 
 	useEffect(() => {
+		if(search.length !== 0) openList();
+		if(search.length === 0) closeList();
+
         if(search && (entries || journals)){
 			const entriesArr = Object.values(entries);
 			const journalsArr = Object.values(journals);
@@ -84,21 +91,21 @@ function SideNavBar({setSearchTerm}) {
 					value={search}
 					onChange={(e) => {
 						setSearch(e.target.value)
-						openList()
 					}}
 					onKeyPress={(e) => e.key === 'Enter' && onSearch()}
 				/>
         	</div>
 			{showList &&
                 <ul id="jour-dropdown">
-                    {searchList.map(searchTerm => {
+                    {searchList.map(searchBlob => {
+						let searchTerm = searchBlob.entry_title || searchBlob.journal_name
                         return(
-                            <li key={searchTerm.id} onClick={() =>
+                            <li key={searchBlob.id} onClick={() =>
 								setSearch(searchTerm)
                     			}
                         		className="e-j-dropdown select-jour"
                             >
-                                {searchTerm.entry_title || searchTerm.journal_name}
+                                {searchTerm}
                             </li>
                         )
                     })}
