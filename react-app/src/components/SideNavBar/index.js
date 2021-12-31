@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { getEntries } from '../../store/entries';
+import { getJournals } from '../../store/journals';
 import { logout } from '../../store/session';
 import './SideNavBar.css'
 
@@ -8,15 +10,73 @@ import './SideNavBar.css'
 
 function SideNavBar({setSearchTerm}) {
 	const user = useSelector((state) => state.session.user);
+	const entries = useSelector(state => state.entries);
+    const journals = useSelector(state => state.journals);
 	const dispatch = useDispatch()
 	const history = useHistory();
 	const [search, setSearch] = useState("");
+	const [searchList, setSearchList] = useState([]);
+	const [showList, setShowList] = useState(false);
+
+	const openList = () => {
+        if (showList) return;
+        setShowList(true);
+    };
+
+	const closeList = () => {
+		setShowList(false);
+	};
+
+    useEffect(() => {
+        if (!showList) return;
+
+        const closeList = () => {
+          setShowList(false);
+        };
+
+        document.addEventListener('click', closeList);
+
+        return () => document.removeEventListener("click", closeList);
+    }, [showList]);
+
+
+	useEffect(() => {
+		if(search.length !== 0) openList();
+		if(search.length === 0 || searchList.length === 0) closeList();
+
+        if(search && (entries || journals)){
+			const entriesArr = Object.values(entries);
+			const journalsArr = Object.values(journals);
+
+			const foundEntries = entriesArr.filter((entry) => {
+				const entryTitle = entry.entry_title.toLowerCase();
+				return entryTitle.includes(search.toLowerCase())
+			});
+
+			const foundJournals = journalsArr.filter((journal) => {
+				const journalName = journal.journal_name.toLowerCase();
+				return journalName.includes(search.toLowerCase());
+			});
+
+			setSearchList(foundEntries.concat(foundJournals))
+
+		}
+
+    }, [search, searchList.length]);
 
     const onSearch = () => {
 		setSearchTerm(search)
 		setSearch("")
 		history.push(`/search`)
 	};
+
+
+	const onSelect = (searchTerm) => {
+			setSearchTerm(searchTerm)
+			setSearch("")
+			history.push(`/search`)
+	};
+
 
 	const onLogout = async (e) => {
 		await dispatch(logout());
@@ -37,9 +97,28 @@ function SideNavBar({setSearchTerm}) {
 					type="text"
 					placeholder="Search"
 					value={search}
-					onChange={(e) => setSearch(e.target.value)}
+					onChange={(e) => {
+						setSearch(e.target.value)
+					}}
 					onKeyPress={(e) => e.key === 'Enter' && onSearch()}
 				/>
+				{showList &&
+					<ul id="search-dropdown">
+						{searchList.map(searchBlob => {
+							let searchTerm = searchBlob.entry_title || searchBlob.journal_name
+							return(
+								<li key={searchTerm} onClick={() => {
+									onSelect(searchTerm)
+								}
+									}
+									className="e-j-dropdown select-jour"
+								>
+									{searchTerm}
+								</li>
+							)
+						})}
+					</ul>
+            	}
         	</div>
 
 			<NavLink to="/entry/new" id="create-new-entry">
