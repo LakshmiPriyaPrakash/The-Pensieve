@@ -131,3 +131,24 @@
     transition: none;
 
 }
+
+#search-dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgb(46, 46, 46);
+    margin-top: 16%;
+    border-radius: 10px;
+    height: 300px;
+    width: 270px;
+    padding: 10px;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    box-shadow: 0 0 4px 4px rgb(53, 52, 52);
+    z-index: 1;
+}
+
+#search-dropdown::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}

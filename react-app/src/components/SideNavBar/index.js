@@ -72,13 +72,9 @@ function SideNavBar({setSearchTerm}) {
 
 
 	const onSelect = (searchTerm) => {
-		const searchTimer = setTimeout(async () => {
 			setSearchTerm(searchTerm)
 			setSearch("")
 			history.push(`/search`)
-		}, 300);
-
-		return () => clearTimeout(searchTimer);
 	};
 
 
@@ -106,25 +102,24 @@ function SideNavBar({setSearchTerm}) {
 					}}
 					onKeyPress={(e) => e.key === 'Enter' && onSearch()}
 				/>
+				{showList &&
+					<ul id="search-dropdown">
+						{searchList.map(searchBlob => {
+							let searchTerm = searchBlob.entry_title || searchBlob.journal_name
+							return(
+								<li key={searchTerm} onClick={() => {
+									onSelect(searchTerm)
+								}
+									}
+									className="e-j-dropdown select-jour"
+								>
+									{searchTerm}
+								</li>
+							)
+						})}
+					</ul>
+            	}
         	</div>
-			{showList &&
-                <ul id="jour-dropdown">
-                    {searchList.map(searchBlob => {
-						let searchTerm = searchBlob.entry_title || searchBlob.journal_name
-                        return(
-                            <li key={searchTerm} onClick={() => {
-								setSearch(searchTerm)
-								onSelect(searchTerm)
-							}
-                    			}
-                        		className="e-j-dropdown select-jour"
-                            >
-                                {searchTerm}
-                            </li>
-                        )
-                    })}
-                </ul>
-            }
 
 			<NavLink to="/entry/new" id="create-new-entry">
 				<i className="fas fa-plus" />
