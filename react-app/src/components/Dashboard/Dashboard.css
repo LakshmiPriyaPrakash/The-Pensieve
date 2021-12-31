@@ -5,7 +5,7 @@
     background-color:black;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: fit-content;
 }
 
 #dashboard-info{
