@@ -1,9 +1,11 @@
 
 #splash-cnt {
     background-image: url("../utils/splash-page.jpg");
+    background-size: contain;
     height: 100vh;
     width: 100vw;
     background-color:black;
+    overflow: auto;
 }
 
 .spl-txt {

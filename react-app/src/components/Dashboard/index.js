@@ -72,7 +72,7 @@ const Dashboard = () => {
                                         <h2>{journal.journal_name}</h2>
                                         {journal.entries.slice(0, 3).map((entry) => {
                                             return (
-                                                <div className="dash-jour-ents">
+                                                <div className="dash-jour-ents"  key={entry.id}>
                                                     <i className="far fa-sticky-note" />
                                                     <h3>{entry.entry_title}</h3>
                                                 </div>

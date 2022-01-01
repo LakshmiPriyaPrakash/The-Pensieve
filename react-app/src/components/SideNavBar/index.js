@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getEntries } from '../../store/entries';
-import { getJournals } from '../../store/journals';
 import { logout } from '../../store/session';
 import './SideNavBar.css'
 
@@ -85,10 +83,10 @@ function SideNavBar({setSearchTerm}) {
 	return (
 		<div className="sidenav">
 
-			<h1>
+			<p>
 				<i className="fas fa-user-circle"/>
 				{user.username}
-			</h1>
+			</p>
 
 			<div className="search-cont">
 				<i className="fas fa-search" />
